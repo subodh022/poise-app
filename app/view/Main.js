@@ -22,7 +22,7 @@ Ext.define('Poise.view.Main', {
                 xtype: 'obform'
             },
             {
-                xtype: 'workstationcard'
+                xtype: 'workstationlist'
             }
         ]
     }

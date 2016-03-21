@@ -38,6 +38,7 @@ Ext.Loader.addClassPathMappings({
   "Poise.store.Workstations": "app/store/Workstation.js",
   "Poise.view": "app/form",
   "Poise.view.Main": "app/view/Main.js",
+  "Poise.view.WorkstationCard": "app/view/workstation/WorkstationCard.js",
   "Poise.view.WorkstationList": "app/view/workstation/WorkstationList.js"
 });
 
@@ -668,6 +669,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.Workstations": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
+  "Poise.view.WorkstationCard": [],
   "Poise.view.WorkstationList": []
 });
 
@@ -1396,6 +1398,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.ObForm": [
     "widget.obform"
+  ],
+  "Poise.view.WorkstationCard": [
+    "widget.workstationcard"
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"
