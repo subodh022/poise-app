@@ -19,7 +19,7 @@ Ext.application({
 
     views: [
         'Main',
-        'Poise.view.WorkstationList'
+        'WorkstationList'
         // 'Poise.view.LineChart'
     ],
 
@@ -32,6 +32,10 @@ Ext.application({
         'Lines',
         'ObStore',
         'ChartData'
+    ],
+
+    controllers: [
+        'WorkstationController'
     ],
 
     icon: {

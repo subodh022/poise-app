@@ -21,13 +21,16 @@ Ext.define('Poise.view.Main', {
 
         items: [
             {
-                xtype: 'obform'
+                xtype: 'obform',
+                margin: '20'
             },
             {
-                xtype: 'reportentrycard'
+                xtype: 'reportentrycard',
+                margin: '20'
             },
             {
-                xtype: 'reportview'
+                xtype: 'reportview',
+                margin: '20'
             }
         ]
     }

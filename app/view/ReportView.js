@@ -20,9 +20,6 @@ Ext.define('Poise.view.ReportView', {
                 xtype: 'titlebar',
                 docked: 'top',
                 title: 'Report'
-            },
-            {
-                xtype: 'linechart'
             }
         ]
     }

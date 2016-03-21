@@ -1,5 +1,9 @@
-Ext.define('Poise.controller.Workstation', {
+Ext.define('Poise.controller.WorkstationController', {
     extend: 'Ext.app.Controller',
+
+    requires: [
+        'Poise.view.AddDowntime'
+    ],
 
     config: {
 
@@ -40,9 +44,9 @@ Ext.define('Poise.controller.Workstation', {
             // "editButton": {
             //     tap: 'editStudent'
             // },
-            // "listView": {
-            //     itemtap: 'onItemTapAction'
-            // },
+            "listView": {
+                itemtap: 'onItemTapAction'
+            },
             // "deleteButton": {
             //     tap: 'deleteStudent'
             // },
@@ -110,8 +114,8 @@ Ext.define('Poise.controller.Workstation', {
     // },
 
     onItemTapAction: function (dataview, index, target, record, e, eOpts) {
-        // this.showEditView(record.data);
-        Ext.Msg.alert('', 'The operation bulletin selected is: ' + record.get('operation_bulletin_style'));
+        this.showEditView(record.data);
+        // Ext.Msg.alert('', 'The operation bulletin selected is: ' + record.get('operation_bulletin_style'));
     },
 
     // deleteStudent: function (button, e, eOpts) {
@@ -149,12 +153,10 @@ Ext.define('Poise.controller.Workstation', {
             listView.refresh();
             listView.setScrollToTopOnRefresh(true);
         });
-    }
+    },
 
-    // showEditView: function (record) {
-    //     var view = this.getEditView() ? this.getEditView() : Ext.create('MyApp.view.Edit');
-    //     var form = view.down('#studentEditForm');
-    //     form.setValues(record);
-    //     Ext.Viewport.setActiveItem(view);
-    // }
+    showEditView: function (record) {
+        var view = Ext.create('Poise.view.AddDowntime');
+        Ext.Viewport.setActiveItem(view);
+    }
 });
