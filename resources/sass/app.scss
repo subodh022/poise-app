@@ -8,3 +8,17 @@
 
 // Examples of using the icon mixin:
 // @include icon('user');
+
+.white_tabbar {
+	background-color: white !important;
+	background-image: none !important;
+	border-bottom: 1px solid #bbb !important;
+}
+
+.white_tabbar .x-tab {
+    color: #0e4a75 !important;
+}
+
+.white_tabbar .x-tab-active {
+    color: #fff !important;
+}

@@ -12,7 +12,6 @@ Ext.define('Poise.view.WorkstationList', {
         layout: 'fit',
         flex: 1,
         title: 'Workstations',
-        iconCls: 'list',
         itemTpl: [
             '<div>Section: {section_name}</div>',
             '<div>Operation: {operation_name}</div>',
@@ -20,22 +19,22 @@ Ext.define('Poise.view.WorkstationList', {
         ],
 
         items: [
-            {
-                xtype: 'titlebar',
-                docked: 'top',
-                items: [
-                    {
-                        xtype: 'textfield',
-                        itemId: 'txtSearchText'
-                    },
-                    {
-                        xtype: 'button',
-                        action: 'search-workstation',
-                        itemId: 'btnSearch',
-                        iconCls: 'search'
-                    }
-                ]
-            }
+            // {
+            //     xtype: 'titlebar',
+            //     docked: 'top',
+            //     items: [
+            //         {
+            //             xtype: 'textfield',
+            //             itemId: 'txtSearchText'
+            //         },
+            //         {
+            //             xtype: 'button',
+            //             action: 'search-workstation',
+            //             itemId: 'btnSearch',
+            //             iconCls: 'search'
+            //         }
+            //     ]
+            // }
         ]
     }
 });

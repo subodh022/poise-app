@@ -33,12 +33,18 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "Poise.controller.Workstation": "app/controller/WorkstationController.js",
+  "Poise": "app",
   "Poise.model.Workstation": "app/model/WorkstationModel.js",
   "Poise.store.Workstations": "app/store/Workstation.js",
+<<<<<<< HEAD
   "Poise.view": "app/form",
   "Poise.view.Main": "app/view/Main.js",
   "Poise.view.WorkstationCard": "app/view/workstation/WorkstationCard.js",
+=======
+  "Poise.view.AddDowntime": "app/form/AddDowntime.js",
+  "Poise.view.ObForm": "app/form/ObForm.js",
+  "Poise.view.ReportEntryCard": "app/view/workstation/ReportEntryCard.js",
+>>>>>>> b41fdeab6856fcd7fb58dc9bb05686f6de8bb972
   "Poise.view.WorkstationList": "app/view/workstation/WorkstationList.js"
 });
 
@@ -664,12 +670,21 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "Poise.controller.Workstation": [],
+  "Poise.controller.WorkstationController": [],
   "Poise.model.Workstation": [],
+  "Poise.store.ChartData": [],
+  "Poise.store.Lines": [],
+  "Poise.store.ObStore": [],
   "Poise.store.Workstations": [],
+  "Poise.view.AddDowntime": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
+<<<<<<< HEAD
   "Poise.view.WorkstationCard": [],
+=======
+  "Poise.view.ReportEntryCard": [],
+  "Poise.view.ReportView": [],
+>>>>>>> b41fdeab6856fcd7fb58dc9bb05686f6de8bb972
   "Poise.view.WorkstationList": []
 });
 
@@ -1388,10 +1403,22 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
-  "Poise.controller.Workstation": [],
+  "Poise.controller.WorkstationController": [],
   "Poise.model.Workstation": [],
+  "Poise.store.ChartData": [
+    "store.chartdata"
+  ],
+  "Poise.store.Lines": [
+    "store.lines"
+  ],
+  "Poise.store.ObStore": [
+    "store.obstore"
+  ],
   "Poise.store.Workstations": [
     "store.workstations"
+  ],
+  "Poise.view.AddDowntime": [
+    "widget.adddowntimeform"
   ],
   "Poise.view.Main": [
     "widget.main"
@@ -1399,8 +1426,16 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.ObForm": [
     "widget.obform"
   ],
+<<<<<<< HEAD
   "Poise.view.WorkstationCard": [
     "widget.workstationcard"
+=======
+  "Poise.view.ReportEntryCard": [
+    "widget.reportentrycard"
+  ],
+  "Poise.view.ReportView": [
+    "widget.reportview"
+>>>>>>> b41fdeab6856fcd7fb58dc9bb05686f6de8bb972
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"
