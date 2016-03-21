@@ -3,7 +3,7 @@ Ext.define('Poise.view.Main', {
     xtype: 'main',
     
     requires: [
-        'Poise.view.WorkstationList',
+        'Poise.view.WorkstationCard',
         'Poise.view.ObForm'
     ],
     
@@ -16,19 +16,13 @@ Ext.define('Poise.view.Main', {
         },
 
         fullscreen: true,
-        layout: 'fit',
-        
-        defaults: {
-            html: 'Placeholder Text',
-            styleHtmlContent: true
-        },
 
         items: [
             {
                 xtype: 'obform'
             },
             {
-                xtype: 'workstationlist'
+                xtype: 'workstationcard'
             }
         ]
     }
