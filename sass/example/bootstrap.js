@@ -2512,6 +2512,7 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Poise.controller.Workstation": [],
   "Poise.model.Workstation": [],
+  "Poise.store.ChartData": [],
   "Poise.store.Lines": [],
   "Poise.store.ObStore": [],
   "Poise.store.Workstations": [],
@@ -3239,6 +3240,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.WindowsPhone": [],
   "Poise.controller.Workstation": [],
   "Poise.model.Workstation": [],
+  "Poise.store.ChartData": [
+    "store.chartdata"
+  ],
   "Poise.store.Lines": [
     "store.lines"
   ],

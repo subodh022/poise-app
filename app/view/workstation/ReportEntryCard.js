@@ -40,7 +40,7 @@ Ext.define('Poise.view.ReportEntryCard', {
             },
             {
                 xtype: 'workstationlist',
-                title: "Output",
+                title: "Output"
             }
         ]
     }
