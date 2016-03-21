@@ -1879,11 +1879,12 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "../../touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "../../touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "../../touch/src/device/sqlite/Sencha.js",
+  "Poise": "../../app",
   "Poise.controller.Workstation": "../../app/controller/WorkstationController.js",
   "Poise.model.Workstation": "../../app/model/WorkstationModel.js",
   "Poise.store.Workstations": "../../app/store/Workstation.js",
-  "Poise.view": "../../app/form",
-  "Poise.view.Main": "../../app/view/Main.js",
+  "Poise.view.ObForm": "../../app/form/ObForm.js",
+  "Poise.view.ReportEntryCard": "../../app/view/workstation/ReportEntryCard.js",
   "Poise.view.WorkstationList": "../../app/view/workstation/WorkstationList.js"
 });
 
@@ -2511,9 +2512,13 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Poise.controller.Workstation": [],
   "Poise.model.Workstation": [],
+  "Poise.store.Lines": [],
+  "Poise.store.ObStore": [],
   "Poise.store.Workstations": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
+  "Poise.view.ReportEntryCard": [],
+  "Poise.view.ReportView": [],
   "Poise.view.WorkstationList": []
 });
 
@@ -3234,6 +3239,12 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.WindowsPhone": [],
   "Poise.controller.Workstation": [],
   "Poise.model.Workstation": [],
+  "Poise.store.Lines": [
+    "store.lines"
+  ],
+  "Poise.store.ObStore": [
+    "store.obstore"
+  ],
   "Poise.store.Workstations": [
     "store.workstations"
   ],
@@ -3242,6 +3253,12 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.ObForm": [
     "widget.obform"
+  ],
+  "Poise.view.ReportEntryCard": [
+    "widget.reportentrycard"
+  ],
+  "Poise.view.ReportView": [
+    "widget.reportview"
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"

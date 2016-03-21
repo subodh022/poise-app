@@ -27,7 +27,9 @@ Ext.application({
     ],
 
     stores: [
-        'Workstations'
+        'Workstations',
+        'Lines',
+        'ObStore'
     ],
 
     icon: {

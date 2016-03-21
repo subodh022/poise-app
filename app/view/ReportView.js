@@ -1,19 +1,19 @@
-Ext.define('Poise.view.WorkstationCard', {
+Ext.define('Poise.view.ReportView', {
     extend: 'Ext.Panel',
-    alias: 'widget.workstationcard',
-    xtype: 'workstationcard',
+    alias: 'widget.reportview',
+    xtype: 'reportview',
 
     config: {
         width: '100%',
         height: '100%',
-        title: 'Workstations',
-        iconCls: 'list',
+        title: 'Report',
+        iconCls: 'star',
 
         items: [
             {
                 xtype: 'titlebar',
                 docked: 'top',
-                title: 'Workstations'
+                title: 'Report'
             }
         ]
     }

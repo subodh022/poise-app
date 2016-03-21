@@ -3,8 +3,10 @@ Ext.define('Poise.view.Main', {
     xtype: 'main',
     
     requires: [
-        'Poise.view.WorkstationCard',
-        'Poise.view.ObForm'
+        'Poise.view.ReportEntryCard',
+        'Poise.view.WorkstationList',
+        'Poise.view.ObForm',
+        'Poise.view.ReportView'
     ],
     
     config: {
@@ -22,7 +24,10 @@ Ext.define('Poise.view.Main', {
                 xtype: 'obform'
             },
             {
-                xtype: 'workstationcard'
+                xtype: 'reportentrycard'
+            },
+            {
+                xtype: 'reportview'
             }
         ]
     }
