@@ -1882,15 +1882,9 @@ Ext.Loader.addClassPathMappings({
   "Poise": "../../app",
   "Poise.model.Workstation": "../../app/model/WorkstationModel.js",
   "Poise.store.Workstations": "../../app/store/Workstation.js",
-<<<<<<< HEAD
-  "Poise.view": "../../app/form",
-  "Poise.view.Main": "../../app/view/Main.js",
-  "Poise.view.WorkstationCard": "../../app/view/workstation/WorkstationCard.js",
-=======
   "Poise.view.AddDowntime": "../../app/form/AddDowntime.js",
   "Poise.view.ObForm": "../../app/form/ObForm.js",
   "Poise.view.ReportEntryCard": "../../app/view/workstation/ReportEntryCard.js",
->>>>>>> b41fdeab6856fcd7fb58dc9bb05686f6de8bb972
   "Poise.view.WorkstationList": "../../app/view/workstation/WorkstationList.js"
 });
 
@@ -2525,12 +2519,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.AddDowntime": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
-<<<<<<< HEAD
-  "Poise.view.WorkstationCard": [],
-=======
   "Poise.view.ReportEntryCard": [],
   "Poise.view.ReportView": [],
->>>>>>> b41fdeab6856fcd7fb58dc9bb05686f6de8bb972
   "Poise.view.WorkstationList": []
 });
 
@@ -3272,16 +3262,11 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.ObForm": [
     "widget.obform"
   ],
-<<<<<<< HEAD
-  "Poise.view.WorkstationCard": [
-    "widget.workstationcard"
-=======
   "Poise.view.ReportEntryCard": [
     "widget.reportentrycard"
   ],
   "Poise.view.ReportView": [
     "widget.reportview"
->>>>>>> b41fdeab6856fcd7fb58dc9bb05686f6de8bb972
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"
