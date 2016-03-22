@@ -37,8 +37,14 @@ Ext.Loader.addClassPathMappings({
   "Poise.model.Workstation": "app/model/WorkstationModel.js",
   "Poise.store.Workstations": "app/store/Workstation.js",
   "Poise.view.AddDowntime": "app/form/AddDowntime.js",
+  "Poise.view.AddOutput": "app/form/AddOutput.js",
+  "Poise.view.AddRework": "app/form/AddRework.js",
+  "Poise.view.DowntimeView": "app/view/workstation/DowntimeView.js",
+  "Poise.view.LoginForm": "app/form/LoginForm.js",
   "Poise.view.ObForm": "app/form/ObForm.js",
+  "Poise.view.OutputView": "app/view/workstation/OutputView.js",
   "Poise.view.ReportEntryCard": "app/view/workstation/ReportEntryCard.js",
+  "Poise.view.ReworkView": "app/view/workstation/ReworkView.js",
   "Poise.view.WorkstationList": "app/view/workstation/WorkstationList.js"
 });
 
@@ -671,10 +677,17 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.ObStore": [],
   "Poise.store.Workstations": [],
   "Poise.view.AddDowntime": [],
+  "Poise.view.AddOutput": [],
+  "Poise.view.AddRework": [],
+  "Poise.view.DowntimeView": [],
+  "Poise.view.Home": [],
+  "Poise.view.LoginForm": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
+  "Poise.view.OutputView": [],
   "Poise.view.ReportEntryCard": [],
   "Poise.view.ReportView": [],
+  "Poise.view.ReworkView": [],
   "Poise.view.WorkstationList": []
 });
 
@@ -1410,17 +1423,38 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.AddDowntime": [
     "widget.adddowntimeform"
   ],
+  "Poise.view.AddOutput": [
+    "widget.addoutputform"
+  ],
+  "Poise.view.AddRework": [
+    "widget.addreworkform"
+  ],
+  "Poise.view.DowntimeView": [
+    "widget.downtimeview"
+  ],
+  "Poise.view.Home": [
+    "widget.home"
+  ],
+  "Poise.view.LoginForm": [
+    "widget.loginform"
+  ],
   "Poise.view.Main": [
     "widget.main"
   ],
   "Poise.view.ObForm": [
     "widget.obform"
   ],
+  "Poise.view.OutputView": [
+    "widget.outputview"
+  ],
   "Poise.view.ReportEntryCard": [
     "widget.reportentrycard"
   ],
   "Poise.view.ReportView": [
     "widget.reportview"
+  ],
+  "Poise.view.ReworkView": [
+    "widget.reworkview"
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"

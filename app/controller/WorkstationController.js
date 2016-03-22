@@ -8,7 +8,13 @@ Ext.define('Poise.controller.WorkstationController', {
     config: {
 
         views: [
-            "WorkstationList"
+            "WorkstationList",
+            "DowntimeView",
+            "ReworkView",
+            "OutputView",
+            "AddDowntime",
+            "AddRework",
+            "AddOutput"
         ],
 
         models: [
@@ -20,10 +26,13 @@ Ext.define('Poise.controller.WorkstationController', {
         ],
 
         refs: {
+            downtimeView: 'downtimeview',
             listView: 'workstationlist',
             // addView: 'studentadd',
             // addButton: 'studentlist button[action=student-add]',
-            // backButton: 'button[action=back]',
+            downtimeBackButton: 'button#downtimeBack',
+            reworkBackButton: 'button#reworkBack',
+            outputBackButton: 'button#outputBack',
             // saveButton: 'studentadd button[action=student-save]',
             // editView: 'studentedit',
             // editButton: 'studentedit button[action=student-save]',
@@ -35,9 +44,15 @@ Ext.define('Poise.controller.WorkstationController', {
             // "addButton": {
             //     tap: 'showAddView'
             // },
-            // "backButton": {
-            //     tap: 'showListView'
-            // },
+            "downtimeBackButton": {
+                tap: 'goBackToDowntimeView'
+            },
+            "reworkBackButton": {
+                tap: 'goBackToReworkView'
+            },
+            "outputBackButton": {
+                tap: 'goBackToOutputView'
+            },
             // "saveButton": {
             //     tap: 'addStudent'
             // },
@@ -114,7 +129,14 @@ Ext.define('Poise.controller.WorkstationController', {
     // },
 
     onItemTapAction: function (dataview, index, target, record, e, eOpts) {
-        this.showEditView(record.data);
+        if(target.up('navigationview')._itemId == "downtimeView"){
+            this.showAddDowntimeView(target, record.data);
+        } else if(target.up('navigationview')._itemId == "reworkView"){
+            this.showReworkView(target, record.data);
+        } else if(target.up('navigationview')._itemId == "outputView"){
+            this.showOutputView(target, record.data);
+        }
+        
         // Ext.Msg.alert('', 'The operation bulletin selected is: ' + record.get('operation_bulletin_style'));
     },
 
@@ -155,8 +177,30 @@ Ext.define('Poise.controller.WorkstationController', {
         });
     },
 
-    showEditView: function (record) {
+    showAddDowntimeView: function (target, record) {
         var view = Ext.create('Poise.view.AddDowntime');
-        Ext.Viewport.setActiveItem(view);
+        target.up('#downtimeView').push(view);
+    },
+
+    showReworkView: function (target, record) {
+        var view = Ext.create('Poise.view.AddRework');
+        target.up('#reworkView').push(view);
+    },
+
+    showOutputView: function (target, record) {
+        var view = Ext.create('Poise.view.AddOutput');
+        target.up('#outputView').push(view);
+    },
+
+    goBackToDowntimeView: function(button, e, eOpts){
+        button.up("#downtimeView").pop();
+    },
+
+    goBackToReworkView: function(button, e, eOpts){
+        button.up("#reworkView").pop();
+    },
+
+    goBackToOutputView: function(button, e, eOpts){
+        button.up("#outputView").pop();
     }
 });

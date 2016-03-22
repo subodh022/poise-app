@@ -19,7 +19,8 @@ Ext.application({
 
     views: [
         'Main',
-        'WorkstationList'
+        'WorkstationList',
+        'DowntimeView'
         // 'Poise.view.LineChart'
     ],
 

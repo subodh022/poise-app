@@ -1,12 +1,9 @@
 Ext.define('Poise.view.Main', {
-    extend: 'Ext.TabPanel',
+    extend: 'Ext.Panel',
     xtype: 'main',
     
     requires: [
-        'Poise.view.ReportEntryCard',
-        'Poise.view.WorkstationList',
-        'Poise.view.ObForm',
-        'Poise.view.ReportView'
+        'Poise.view.LoginForm'
     ],
     
     config: {
@@ -21,16 +18,7 @@ Ext.define('Poise.view.Main', {
 
         items: [
             {
-                xtype: 'obform',
-                margin: '20'
-            },
-            {
-                xtype: 'reportentrycard',
-                margin: '20'
-            },
-            {
-                xtype: 'reportview',
-                margin: '20'
+                xtype: 'loginform'
             }
         ]
     }

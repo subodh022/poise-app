@@ -1,7 +1,7 @@
-Ext.define('Poise.view.AddDowntime', {
+Ext.define('Poise.view.AddRework', {
     extend: 'Ext.form.FormPanel',
-    alias: 'widget.adddowntimeform',
-    xtype: 'adddowntimeform',
+    alias: 'widget.addreworkform',
+    xtype: 'addreworkform',
 
     requires: [
         'Ext.form.FieldSet',
@@ -9,7 +9,7 @@ Ext.define('Poise.view.AddDowntime', {
     ],
 
     config: {
-        itemId: 'adddowntimeform',
+        itemId: 'addreworkform',
         margin: '10',
         scrollable: false,
         height: '100%',
@@ -17,13 +17,13 @@ Ext.define('Poise.view.AddDowntime', {
         items: [
             {
                 xtype: 'fieldset',
-                title: "Add Downtime",
+                title: "Add Rework",
                 margin: '10',
                 items: [
                     {
                         xtype: 'textfield',
-                        label: 'Downtime (Minutes)',
-                        name: 'downtime'
+                        label: 'Rework (Minutes)',
+                        name: 'rework'
                     }
                 ]
                 
@@ -47,7 +47,7 @@ Ext.define('Poise.view.AddDowntime', {
                 items: [
                     {
                         xtype: 'button',
-                        action: 'downtime-save',
+                        action: 'rework-save',
                         ui: 'confirm',
                         iconCls: 'add',
                         text: 'Add',
@@ -66,7 +66,7 @@ Ext.define('Poise.view.AddDowntime', {
                         ui: 'action',
                         text: 'Cancel',
                         align: 'left',
-                        itemId: 'downtimeBack'
+                        itemId: 'reworkBack'
                     }
                 ]
             }
