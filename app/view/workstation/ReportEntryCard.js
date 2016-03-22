@@ -31,15 +31,15 @@ Ext.define('Poise.view.ReportEntryCard', {
                 html: "<p>Worker list comes here</p>"
             },
             {
-                xtype: 'workstationlist',
-                title: "Downtime"
+                xtype: 'downtimeview',
+                title: 'Downtime'
             },
             {
-                xtype: 'workstationlist',
-                title: "Re-work"
+                xtype: 'reworkview',
+                title: "Rework"
             },
             {
-                xtype: 'workstationlist',
+                xtype: 'outputview',
                 title: "Output"
             }
         ]
