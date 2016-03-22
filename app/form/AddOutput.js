@@ -11,7 +11,7 @@ Ext.define('Poise.view.AddOutput', {
     config: {
         itemId: 'addoutputform',
         margin: '10',
-        scrollable: false,
+        scrollable: true,
         height: '100%',
 
         items: [

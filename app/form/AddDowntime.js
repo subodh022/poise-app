@@ -11,7 +11,7 @@ Ext.define('Poise.view.AddDowntime', {
     config: {
         itemId: 'adddowntimeform',
         margin: '10',
-        scrollable: false,
+        scrollable: true,
         height: '100%',
 
         items: [
