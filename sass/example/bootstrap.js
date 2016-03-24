@@ -1881,6 +1881,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLTransaction": "../../touch/src/device/sqlite/Sencha.js",
   "Poise": "../../app",
   "Poise.model.Workstation": "../../app/model/WorkstationModel.js",
+  "Poise.store.ReportTimeData": "../../app/store/ReportTime.js",
   "Poise.store.Workstations": "../../app/store/Workstation.js",
   "Poise.view.AddDowntime": "../../app/form/AddDowntime.js",
   "Poise.view.AddOutput": "../../app/form/AddOutput.js",
@@ -2521,6 +2522,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.ChartData": [],
   "Poise.store.Lines": [],
   "Poise.store.ObStore": [],
+  "Poise.store.ReportTimeData": [],
   "Poise.store.Workstations": [],
   "Poise.view.AddDowntime": [],
   "Poise.view.AddOutput": [],
@@ -3262,6 +3264,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.store.ObStore": [
     "store.obstore"
+  ],
+  "Poise.store.ReportTimeData": [
+    "store.reporttimedata"
   ],
   "Poise.store.Workstations": [
     "store.workstations"

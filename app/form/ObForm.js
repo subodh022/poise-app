@@ -33,7 +33,7 @@ Ext.define('Poise.view.ObForm', {
                         label: 'Choose Line',
                         itemId: 'Line',
                         labelWrap: true,
-                        displayField: 'name',
+                        displayField: 'title',
                         store: {
                             type: 'lines'
                         },
@@ -50,8 +50,8 @@ Ext.define('Poise.view.ObForm', {
                         label: 'Choose OB',
                         itemId: 'Ob',
                         labelWrap: true,
-                        placeHolder: 'Select Line First',
-                        displayField: 'name',
+                        placeHolder: 'No OB Found',
+                        displayField: 'style',
                         valueField: 'id'
                     }
                 ]
@@ -78,12 +78,13 @@ Ext.define('Poise.view.ObForm', {
         var obField = formpanel.down('#Ob');
         var obStore = Ext.getStore('Obs');
         obStore.filter('line_id',newValue);
-        obStore.load();
+        obStore.load({
+            params: {'line_id': newValue}
+        });
         obField.setStore(obStore);
     },
 
     setOperationBulletin: function(selectfield, newValue, oldValue, options) {
         localStorage.setItem('obId', newValue);
-        // Ext.Msg.alert(localStorage.getItem('lineId') + ' ' + localStorage.getItem('obId'));
     }
 });

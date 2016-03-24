@@ -21,11 +21,6 @@ Ext.define('Poise.view.ReportEntryCard', {
 
         items: [
             {
-                xtype: 'titlebar',
-                docked: 'top',
-                title: 'Report Data Entry'
-            },
-            {
                 xtype: 'panel',
                 title: "Attendance",
                 html: "<p>Worker list comes here</p>"

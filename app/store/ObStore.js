@@ -2,53 +2,8 @@ Ext.define('Poise.store.ObStore', {
     extend: 'Ext.data.Store',
     alias: 'store.obstore',
  
-    config: {
- 
-        data: [
-            {
-                id: 1,
-                line_id: 1,
-                name: 'Tamil Nadu'
-            },
-            {
-                id: 2,
-                line_id: 1,
-                name: 'Bihar'
-            },
-            {
-                id: 3,
-                line_id: 1,
-                name: 'Delhi'
-            },
-            {
-                id: 4,
-                line_id: 2,
-                name: 'Los Angles'
-            },
-            {
-                id: 5,
-                line_id: 2,
-                name: 'San francisco'
-            },
-            {
-                id: 6,
-                line_id: 2,
-                name: 'California'
-            },
-            {
-                id: 7,
-                line_id: 3,
-                name: 'London'
-            },
-            {
-                id: 8,
-                line_id: 3,
-                name: 'New York'
-            }
-        ],
- 
+    config: { 
         storeId: 'Obs',
- 
         fields: [
             {
                 name: 'id'
@@ -57,8 +12,19 @@ Ext.define('Poise.store.ObStore', {
                 name: 'line_id'
             },
             {
-                name: 'name'
+                name: 'style'
             }
-        ]
+        ],
+        proxy: {
+            type: 'rest',
+            method: 'GET',
+            // url: 'http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/lines.json',
+            url: 'http://localhost:3000/api/v1/operation_bulletins.json',
+            reader: {
+                type: 'json',
+                idProperty: 'id',
+                record: 'operation_bulletin'
+            }
+        }
     }
 });
