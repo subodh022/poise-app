@@ -5,16 +5,27 @@ Ext.define('Poise.view.AddRework', {
 
     requires: [
         'Ext.form.FieldSet',
-        'Ext.field.Number'
+        'Ext.field.Number',
+        'Ext.field.Hidden'
     ],
 
     config: {
-        itemId: 'addreworkform',
+        itemId: 'addReworkForm',
         margin: '10',
         scrollable: true,
         height: '100%',
 
         items: [
+            {
+                xtype: 'hiddenfield',
+                name: 'work_station_id',
+                value: 123
+            },
+            {
+                xtype: 'hiddenfield',
+                name: 'logged_at',
+                value: 123
+            },
             {
                 xtype: 'fieldset',
                 title: "Add Rework",
@@ -22,7 +33,7 @@ Ext.define('Poise.view.AddRework', {
                 items: [
                     {
                         xtype: 'textfield',
-                        label: 'Rework (Minutes)',
+                        label: 'Rework',
                         name: 'rework'
                     }
                 ]

@@ -19,29 +19,50 @@ Ext.define('Poise.view.OutputView', {
                         cls: 'white_tabbar',
                         items: [
                             {
-                                xtype: 'panel',
-                                layout: 'hbox',
-                                align: 'left',
-                                items: [
-                                    {
-                                        xtype: 'label',
-                                        styleHtmlContent: true,
-                                        html: '<span>Entry Time for Report : </span>'
-                                    },
-                                    {
-                                        xtype: 'selectfield',
-                                        itemId: 'reportTime',
-                                        displayField: 'name',
-                                        valueField: 'id',
-                                        ui: 'normal',
-                                        store: {
-                                            type: 'lines'
-                                        },
-                                        style: {
-                                            'padding-top': '0.75em'
+                                xtype: 'label',
+                                styleHtmlContent: true,
+                                align: 'right',
+                                html: '<span>Entry Time : </span>'
+                            },
+                            {
+                                xtype: 'selectfield',
+                                itemId: 'reportTime',
+                                displayField: 'id',
+                                valueField: 'id',
+                                ui: 'normal',
+                                align: 'right',
+                                store: {
+                                    type: 'reporttimedata'
+                                },
+                                style: {
+                                    'padding-top': '0.75em'
+                                }
+                            },
+                            {
+                                xtype: 'spacer'
+                            },
+                            {
+                                xtype: 'label',
+                                styleHtmlContent: true,
+                                html: '<span>Entry Date : </span>'
+                            },
+                            {
+                                xtype: 'selectfield',
+                                itemId: 'reportDate',
+                                displayField: 'id',
+                                valueField: 'id',
+                                ui: 'normal',
+                                store: {
+                                    fields: ['id'],
+                                    data: [
+                                        {
+                                            id: (new Date().toLocaleDateString())
                                         }
-                                    }
-                                ]
+                                    ]
+                                },
+                                style: {
+                                    'padding-top': '0.75em'
+                                }
                             }
                         ]
                     },

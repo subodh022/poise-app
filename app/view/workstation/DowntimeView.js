@@ -4,7 +4,8 @@ Ext.define('Poise.view.DowntimeView', {
     xtype: 'downtimeview',
 
     requires: [
-        'Ext.Label'
+        'Ext.Label',
+        'Poise.store.ReportTimeData'
     ],
 
     config: {
@@ -16,36 +17,59 @@ Ext.define('Poise.view.DowntimeView', {
             {
                 xtype: 'panel',
                 layout: 'fit',
+                width: '100%',
                 items: [
                     {
                         xtype: 'titlebar',
                         docked: 'top',
                         cls: 'white_tabbar',
+                        width: '100%',
                         items: [
                             {
-                                xtype: 'panel',
-                                layout: 'hbox',
-                                align: 'left',
-                                items: [
-                                    {
-                                        xtype: 'label',
-                                        styleHtmlContent: true,
-                                        html: '<span>Entry Time for Report : </span>'
-                                    },
-                                    {
-                                        xtype: 'selectfield',
-                                        itemId: 'reportTime',
-                                        displayField: 'name',
-                                        valueField: 'id',
-                                        ui: 'normal',
-                                        store: {
-                                            type: 'lines'
-                                        },
-                                        style: {
-                                            'padding-top': '0.75em'
+                                xtype: 'label',
+                                styleHtmlContent: true,
+                                align: 'right',
+                                html: '<span>Entry Time : </span>'
+                            },
+                            {
+                                xtype: 'selectfield',
+                                itemId: 'reportTime',
+                                displayField: 'id',
+                                valueField: 'id',
+                                ui: 'normal',
+                                align: 'right',
+                                store: {
+                                    type: 'reporttimedata'
+                                },
+                                style: {
+                                    'padding-top': '0.75em'
+                                }
+                            },
+                            {
+                                xtype: 'spacer'
+                            },
+                            {
+                                xtype: 'label',
+                                styleHtmlContent: true,
+                                html: '<span>Entry Date : </span>'
+                            },
+                            {
+                                xtype: 'selectfield',
+                                itemId: 'reportDate',
+                                displayField: 'id',
+                                valueField: 'id',
+                                ui: 'normal',
+                                store: {
+                                    fields: ['id'],
+                                    data: [
+                                        {
+                                            id: (new Date().toLocaleDateString())
                                         }
-                                    }
-                                ]
+                                    ]
+                                },
+                                style: {
+                                    'padding-top': '0.75em'
+                                }
                             }
                         ]
                     },

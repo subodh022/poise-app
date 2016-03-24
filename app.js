@@ -59,6 +59,9 @@ Ext.application({
     },
 
     launch: function() {
+        // Ext.Loader.setPath('Ext.ux.touch', './plugins/Ext.ux.touch.SwipeTabs/src/');
+        // Ext.require('Ext.ux.touch.SwipeTabs');
+
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 

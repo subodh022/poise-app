@@ -12,6 +12,7 @@ Ext.define('Poise.view.WorkstationList', {
         layout: 'fit',
         flex: 1,
         title: 'Workstations',
+        grouped: true,
         itemTpl: [
             '<div>Section: {section_name}</div>',
             '<div>Operation: {operation_name}</div>',

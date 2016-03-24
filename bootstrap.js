@@ -34,8 +34,14 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
   "Poise": "app",
+  "Poise.model.Downtime": "app/model/DowntimeModel.js",
+  "Poise.model.Output": "app/model/OutputModel.js",
+  "Poise.model.Rework": "app/model/ReworkModel.js",
   "Poise.model.Workstation": "app/model/WorkstationModel.js",
+  "Poise.store.Downtimes": "app/store/Downtime.js",
+  "Poise.store.Outputs": "app/store/Output.js",
   "Poise.store.ReportTimeData": "app/store/ReportTime.js",
+  "Poise.store.Reworks": "app/store/Rework.js",
   "Poise.store.Workstations": "app/store/Workstation.js",
   "Poise.view.AddDowntime": "app/form/AddDowntime.js",
   "Poise.view.AddOutput": "app/form/AddOutput.js",
@@ -672,11 +678,17 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "Poise.controller.WorkstationController": [],
+  "Poise.model.Downtime": [],
+  "Poise.model.Output": [],
+  "Poise.model.Rework": [],
   "Poise.model.Workstation": [],
   "Poise.store.ChartData": [],
+  "Poise.store.Downtimes": [],
   "Poise.store.Lines": [],
   "Poise.store.ObStore": [],
+  "Poise.store.Outputs": [],
   "Poise.store.ReportTimeData": [],
+  "Poise.store.Reworks": [],
   "Poise.store.Workstations": [],
   "Poise.view.AddDowntime": [],
   "Poise.view.AddOutput": [],
@@ -1409,9 +1421,15 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
   "Poise.controller.WorkstationController": [],
+  "Poise.model.Downtime": [],
+  "Poise.model.Output": [],
+  "Poise.model.Rework": [],
   "Poise.model.Workstation": [],
   "Poise.store.ChartData": [
     "store.chartdata"
+  ],
+  "Poise.store.Downtimes": [
+    "store.downtimes"
   ],
   "Poise.store.Lines": [
     "store.lines"
@@ -1419,8 +1437,14 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.store.ObStore": [
     "store.obstore"
   ],
+  "Poise.store.Outputs": [
+    "store.outputs"
+  ],
   "Poise.store.ReportTimeData": [
     "store.reporttimedata"
+  ],
+  "Poise.store.Reworks": [
+    "store.reworks"
   ],
   "Poise.store.Workstations": [
     "store.workstations"

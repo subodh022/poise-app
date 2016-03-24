@@ -5,16 +5,26 @@ Ext.define('Poise.view.AddDowntime', {
 
     requires: [
         'Ext.form.FieldSet',
-        'Ext.field.Number'
+        'Ext.field.Number',
+        'Ext.field.Hidden'
     ],
 
     config: {
-        itemId: 'adddowntimeform',
+        itemId: 'addDowntimeForm',
         margin: '10',
         scrollable: true,
         height: '100%',
+        url: 'http://localhost:3000/api/v1/machine_downtimes.json',
 
         items: [
+            {
+                xtype: 'hiddenfield',
+                name: 'work_station_id'
+            },
+            {
+                xtype: 'hiddenfield',
+                name: 'logged_at'
+            },
             {
                 xtype: 'fieldset',
                 title: "Add Downtime",
