@@ -6,7 +6,8 @@ Ext.define('Poise.view.ReportView', {
     requires: [
         'Poise.view.LineChartPanel',
         'Poise.view.BarChartPanel',
-        'Poise.view.OutputAvgChartPanel'
+        'Poise.view.OutputAvgChartPanel',
+        'Poise.view.OutputTrendChartPanel'
     ],
 
     config: {
@@ -45,7 +46,18 @@ Ext.define('Poise.view.ReportView', {
                 itemId: 'downtimeChart',
                 items: [
                     {
+                        html: '<div class="chart-title">Sample Charts</div>',
+                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                    },
+                    {
                         xtype: 'nvd3_barchart_panel'
+                    },
+                    {
+                        html: '<div class="chart-title">Sample Charts</div>',
+                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                    },
+                    {
+                        xtype: 'nvd3_linechart_panel'
                     }
                 ]
             },
@@ -56,6 +68,17 @@ Ext.define('Poise.view.ReportView', {
                 title: 'Rework',
                 itemId: 'reworkChart',
                 items: [
+                    {
+                        html: '<div class="chart-title">Sample Charts</div>',
+                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                    },
+                    {
+                        xtype: 'nvd3_barchart_panel'
+                    },
+                    {
+                        html: '<div class="chart-title">Sample Charts</div>',
+                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                    },
                     {
                         xtype: 'nvd3_linechart_panel'
                     }
@@ -69,7 +92,18 @@ Ext.define('Poise.view.ReportView', {
                 itemId: 'outputChart',
                 items: [
                     {
+                        html: '<div class="chart-title">Sample Charts</div>',
+                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                    },
+                    {
                         xtype: 'nvd3_opavg_panel'
+                    },
+                    {
+                        html: '<div class="chart-title">Sample Charts</div>',
+                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                    },
+                    {
+                        xtype: 'nvd3_optrend_panel'
                     }
                 ]
             }

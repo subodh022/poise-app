@@ -4,7 +4,7 @@ Ext.define('Poise.view.LineChartPanel', {
     
     config: {
         layout: 'fit',
-        flex: 1,
+        flex: 2,
         items: [{
             xtype: 'oc-linechart',
             chartOptions: {

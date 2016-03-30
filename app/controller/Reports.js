@@ -9,6 +9,7 @@ Ext.define('Poise.controller.Reports', {
         refs: {
             cardContainer: 'reportview container[name=downtime_container]',
             opAvgChart: 'nvd3_opavg_panel oc-barchart',
+            opTrendChart: 'nvd3_optrend_panel oc-barchart',
             barChart: 'reportview oc-barchart',
             lineChart: 'reportview oc-linechart',
             scatterChart: 'reportview oc-scatterchart',
@@ -62,7 +63,17 @@ Ext.define('Poise.controller.Reports', {
         //load the data
         this.getOpAvgChart().on('chartLoaded', function(chart) {
             me.onActiveItemChange(null, opAvgTriggerObj);
-        });        
+        });
+
+        //trigger the onActiveItemChange initially to load the first chart's data
+        var opTrendTriggerObj = { config: { xtype: 'nvd3_optrend_panel' } },
+            me = this;
+    
+        //the barchart is at index 0 so when the chart is loaded we need to
+        //load the data
+        this.getOpTrendChart().on('chartLoaded', function(chart) {
+            me.onActiveItemChange(null, opTrendTriggerObj);
+        });
     },
     
     onNavButtonTap: function(cmp, e, eOpts) {
@@ -80,7 +91,7 @@ Ext.define('Poise.controller.Reports', {
         switch(xtype) {
             case 'nvd3_barchart_panel':
                 var chart = this.getBarChart();
-                var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":-29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":-98.079782601442},{"label":"G","value":-13.925743130903},{"label":"H","value":-5.1387322875705}]}];
+                var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":98.079782601442},{"label":"G","value":13.925743130903},{"label":"H","value":5.1387322875705}]}];
                 chart.renderChartData(chartdata);
                 // this.loadChartData('chartdata/barchart.json', chart);
                 break;
@@ -93,6 +104,12 @@ Ext.define('Poise.controller.Reports', {
                 break;
             case 'nvd3_opavg_panel':
                 var chart = this.getOpAvgChart();
+                var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":-29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":-98.079782601442},{"label":"G","value":-13.925743130903},{"label":"H","value":-5.1387322875705}]}];
+                chart.renderChartData(chartdata);
+                // this.loadChartData('chartdata/barchart.json', chart);
+                break;
+            case 'nvd3_optrend_panel':
+                var chart = this.getOpTrendChart();
                 var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":-29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":-98.079782601442},{"label":"G","value":-13.925743130903},{"label":"H","value":-5.1387322875705}]}];
                 chart.renderChartData(chartdata);
                 // this.loadChartData('chartdata/barchart.json', chart);

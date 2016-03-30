@@ -1902,6 +1902,7 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.LoginForm": "../../app/form/LoginForm.js",
   "Poise.view.ObForm": "../../app/form/ObForm.js",
   "Poise.view.OutputAvgChartPanel": "../../app/view/charts/OutputAvgChart.js",
+  "Poise.view.OutputTrendChartPanel": "../../app/view/charts/OutputTrendChart.js",
   "Poise.view.OutputView": "../../app/view/workstation/OutputView.js",
   "Poise.view.ReportEntryCard": "../../app/view/workstation/ReportEntryCard.js",
   "Poise.view.ReworkView": "../../app/view/workstation/ReworkView.js",
@@ -2573,6 +2574,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
   "Poise.view.OutputAvgChartPanel": [],
+  "Poise.view.OutputTrendChartPanel": [],
   "Poise.view.OutputView": [],
   "Poise.view.ReportEntryCard": [],
   "Poise.view.ReportView": [],
@@ -3405,6 +3407,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.OutputAvgChartPanel": [
     "widget.nvd3_opavg_panel"
+  ],
+  "Poise.view.OutputTrendChartPanel": [
+    "widget.nvd3_optrend_panel"
   ],
   "Poise.view.OutputView": [
     "widget.outputview"
