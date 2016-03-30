@@ -28,11 +28,6 @@ Ext.define('Poise.view.ReportEntryCard', {
                 docked: 'top'
             },
             {
-                xtype: 'panel',
-                title: "Attendance",
-                html: "<p>Worker list comes here</p>"
-            },
-            {
                 xtype: 'downtimeview',
                 title: 'Downtime'
             },
@@ -43,6 +38,10 @@ Ext.define('Poise.view.ReportEntryCard', {
             {
                 xtype: 'outputview',
                 title: "Output"
+            },
+            {
+                xtype: 'attendanceview',
+                title: "Attendance"
             }
         ]
     }

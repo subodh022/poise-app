@@ -9,9 +9,11 @@ Ext.define('Poise.controller.WorkstationController', {
 
         views: [
             "WorkstationList",
+            "AttendanceList",
             "DowntimeView",
             "ReworkView",
             "OutputView",
+            "AttendanceView",
             "AddDowntime",
             "AddRework",
             "AddOutput"
@@ -74,6 +76,7 @@ Ext.define('Poise.controller.WorkstationController', {
         var form = button.up("#addDowntimeForm");
         var values = form.getValues(),
             store = Ext.getStore('Downtimes');
+        store.clearData();
         store.add(values);
         store.sync();
         form.reset();
@@ -84,6 +87,7 @@ Ext.define('Poise.controller.WorkstationController', {
         var form = button.up("#addReworkForm");
         var values = form.getValues(),
             store = Ext.getStore('Reworks');
+        store.clearData();
         store.add(values);
         store.sync();
         form.reset();
@@ -94,6 +98,7 @@ Ext.define('Poise.controller.WorkstationController', {
         var form = button.up("#addOutputForm");
         var values = form.getValues(),
             store = Ext.getStore('Outputs');
+        store.clearData();
         store.add(values);
         store.sync();
         form.reset();

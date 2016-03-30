@@ -68,6 +68,14 @@
      */
     "js": [
         {
+            "path": "OpenCharts/lib/d3.js",
+            "update": "delta"
+        },
+        {
+            "path": "OpenCharts/lib/nv.d3.min.js",
+            "update": "delta"
+        },
+        {
             "path": "touch/sencha-touch.js",
             "x-bootstrap": true
         },
@@ -101,6 +109,10 @@
     "css": [
         {
             "path": "resources/css/app.css",
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/nv.d3.min.css",
             "update": "delta"
         }
     ],

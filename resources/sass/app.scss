@@ -22,3 +22,22 @@
 .white_tabbar .x-tab-active {
     color: #fff !important;
 }
+
+.box-form .x-field {
+	display: block !important;
+	background-color: #f7f7f7;
+}
+
+.box-form .x-form-label {
+	width: 100% !important;
+}
+
+.box-form .x-form-fieldset-title {
+    margin: 1em 0.7em;
+    text-align: center;
+}
+
+.x-list-emptytext {
+	font-style: italic;
+	color: #aaa;
+}

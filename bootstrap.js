@@ -33,6 +33,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
+  "OpenCharts.charts.StackedBarChart": "OpenCharts/charts/StackedBarChart.js",
   "Poise": "app",
   "Poise.model.Downtime": "app/model/DowntimeModel.js",
   "Poise.model.Output": "app/model/OutputModel.js",
@@ -46,9 +47,15 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.AddDowntime": "app/form/AddDowntime.js",
   "Poise.view.AddOutput": "app/form/AddOutput.js",
   "Poise.view.AddRework": "app/form/AddRework.js",
+  "Poise.view.AttendanceList": "app/view/workstation/AttendnceList.js",
+  "Poise.view.AttendanceListItem": "app/view/workstation/AttendanceListItem.js",
+  "Poise.view.AttendanceView": "app/view/workstation/AttendanceView.js",
+  "Poise.view.BarChartPanel": "app/view/charts/BarChartPanel.js",
   "Poise.view.DowntimeView": "app/view/workstation/DowntimeView.js",
+  "Poise.view.LineChartPanel": "app/view/charts/LineChartPanel.js",
   "Poise.view.LoginForm": "app/form/LoginForm.js",
   "Poise.view.ObForm": "app/form/ObForm.js",
+  "Poise.view.OutputAvgChartPanel": "app/view/charts/OutputAvgChart.js",
   "Poise.view.OutputView": "app/view/workstation/OutputView.js",
   "Poise.view.ReportEntryCard": "app/view/workstation/ReportEntryCard.js",
   "Poise.view.ReworkView": "app/view/workstation/ReworkView.js",
@@ -677,6 +684,22 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "OpenCharts.OpenCharts": [],
+  "OpenCharts.charts.BarChart": [],
+  "OpenCharts.charts.BulletChart": [],
+  "OpenCharts.charts.Chart": [],
+  "OpenCharts.charts.CumulativeLineChart": [],
+  "OpenCharts.charts.HorizontalStackedBarChart": [],
+  "OpenCharts.charts.LineChart": [],
+  "OpenCharts.charts.LinePlusBarChart": [],
+  "OpenCharts.charts.LineWithFocusChart": [],
+  "OpenCharts.charts.PieChart": [],
+  "OpenCharts.charts.ScatterChart": [],
+  "OpenCharts.charts.StackedAreaChart": [],
+  "OpenCharts.charts.StackedBarChart": [],
+  "Poise.controller.BarChart": [],
+  "Poise.controller.LineChart": [],
+  "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
   "Poise.model.Output": [],
@@ -693,11 +716,17 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.AddDowntime": [],
   "Poise.view.AddOutput": [],
   "Poise.view.AddRework": [],
+  "Poise.view.AttendanceList": [],
+  "Poise.view.AttendanceListItem": [],
+  "Poise.view.AttendanceView": [],
+  "Poise.view.BarChartPanel": [],
   "Poise.view.DowntimeView": [],
   "Poise.view.Home": [],
+  "Poise.view.LineChartPanel": [],
   "Poise.view.LoginForm": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
+  "Poise.view.OutputAvgChartPanel": [],
   "Poise.view.OutputView": [],
   "Poise.view.ReportEntryCard": [],
   "Poise.view.ReportView": [],
@@ -1420,6 +1449,46 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "OpenCharts.OpenCharts": [],
+  "OpenCharts.charts.BarChart": [
+    "widget.oc-barchart"
+  ],
+  "OpenCharts.charts.BulletChart": [
+    "widget.oc-bulletchart"
+  ],
+  "OpenCharts.charts.Chart": [
+    "widget.oc-chartparent"
+  ],
+  "OpenCharts.charts.CumulativeLineChart": [
+    "widget.oc-cumulativelinechart"
+  ],
+  "OpenCharts.charts.HorizontalStackedBarChart": [
+    "widget.oc-horizontalstackedbarchart"
+  ],
+  "OpenCharts.charts.LineChart": [
+    "widget.oc-linechart"
+  ],
+  "OpenCharts.charts.LinePlusBarChart": [
+    "widget.oc-lineplusbarchart"
+  ],
+  "OpenCharts.charts.LineWithFocusChart": [
+    "widget.oc-linewithfocuschart"
+  ],
+  "OpenCharts.charts.PieChart": [
+    "widget.oc-piechart"
+  ],
+  "OpenCharts.charts.ScatterChart": [
+    "widget.oc-scatterchart"
+  ],
+  "OpenCharts.charts.StackedAreaChart": [
+    "widget.oc-stackedareachart"
+  ],
+  "OpenCharts.charts.StackedBarChart": [
+    "widget.oc-stackedbarchart"
+  ],
+  "Poise.controller.BarChart": [],
+  "Poise.controller.LineChart": [],
+  "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
   "Poise.model.Output": [],
@@ -1458,11 +1527,26 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.AddRework": [
     "widget.addreworkform"
   ],
+  "Poise.view.AttendanceList": [
+    "widget.attendancelist"
+  ],
+  "Poise.view.AttendanceListItem": [
+    "widget.attendancelistitem"
+  ],
+  "Poise.view.AttendanceView": [
+    "widget.attendanceview"
+  ],
+  "Poise.view.BarChartPanel": [
+    "widget.nvd3_barchart_panel"
+  ],
   "Poise.view.DowntimeView": [
     "widget.downtimeview"
   ],
   "Poise.view.Home": [
     "widget.home"
+  ],
+  "Poise.view.LineChartPanel": [
+    "widget.nvd3_linechart_panel"
   ],
   "Poise.view.LoginForm": [
     "widget.loginform"
@@ -1472,6 +1556,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.ObForm": [
     "widget.obform"
+  ],
+  "Poise.view.OutputAvgChartPanel": [
+    "widget.nvd3_opavg_panel"
   ],
   "Poise.view.OutputView": [
     "widget.outputview"

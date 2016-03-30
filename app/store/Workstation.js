@@ -8,7 +8,7 @@ Ext.define('Poise.store.Workstations', {
 
     config: {
         model: 'Poise.model.Workstation',
-        autoLoad: true,
+        // autoLoad: true,
         storeId: 'Workstations',
         grouper: {
             groupFn: function(record) {

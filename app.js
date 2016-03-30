@@ -14,15 +14,18 @@ Ext.application({
     name: 'Poise',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'OpenCharts.OpenCharts'
     ],
 
     views: [
         'Main',
         "Home",
         'WorkstationList',
-        'DowntimeView'
-        // 'Poise.view.LineChart'
+        'AttendanceList',
+        'DowntimeView',
+        'ReportView',
+        'AttendanceListItem'
     ],
 
     models: [
@@ -37,7 +40,10 @@ Ext.application({
     ],
 
     controllers: [
-        'WorkstationController'
+        'WorkstationController',
+        'BarChart',
+        'LineChart',
+        'Reports'
     ],
 
     icon: {

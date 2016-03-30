@@ -12,6 +12,7 @@ Ext.define('Poise.view.WorkstationList', {
         layout: 'fit',
         flex: 1,
         title: 'Workstations',
+        emptyText: "No Workstation Added for Selected Operation Bulletin",
         grouped: true,
         itemTpl: [
             '<div>Section: {section_name}</div>',

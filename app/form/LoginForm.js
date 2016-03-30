@@ -14,6 +14,7 @@ Ext.define('Poise.view.LoginForm', {
         width: '100%',
         height: '100%',
         itemId: 'loginForm',
+        cls: 'box-form',
 
         items: [
             {
@@ -24,7 +25,7 @@ Ext.define('Poise.view.LoginForm', {
             {
                 xtype: 'fieldset',
                 name: 'username',
-                title: 'Log In to Poise',
+                title: 'Login to Poise',
                 items: [
                     {
                         xtype: 'textfield',
@@ -58,7 +59,7 @@ Ext.define('Poise.view.LoginForm', {
                         ui: 'confirm',
                         iconCls: 'user',
                         text: 'Login',
-                        width: '6em',
+                        width: 'auto',
                         itemId: 'Login'
                     }
                 ]

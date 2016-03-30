@@ -62,7 +62,7 @@ Ext.define('Poise.view.AddOutput', {
                         ui: 'confirm',
                         iconCls: 'add',
                         text: 'Add',
-                        width: '5em',
+                        width: 'auto',
                         align: 'left'
                     },
                     {
@@ -73,7 +73,7 @@ Ext.define('Poise.view.AddOutput', {
                         xtype: 'button',
                         action: 'back',
                         iconCls: 'delete',
-                        width: '6.5em',
+                        width: 'auto',
                         ui: 'action',
                         text: 'Cancel',
                         align: 'left',
