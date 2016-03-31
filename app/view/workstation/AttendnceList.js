@@ -9,12 +9,12 @@ Ext.define('Poise.view.AttendanceList', {
         },
         width: '100%',
         height: '100%',
-        layout: 'fit',
         flex: 1,
         useComponents: true,
         title: 'Workstations',
         emptyText: "No Workstation Added for Selected Operation Bulletin",
         grouped: true,
-        defaultType: 'attendancelistitem'
+        defaultType: 'attendancelistitem',
+        scrollable: true
     }
 });

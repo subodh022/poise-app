@@ -9,7 +9,8 @@ Ext.define('Poise.model.Workstation', {
             { name: 'section_name', type: 'string' },
             { name: 'operation_name', type: 'string' },
             { name: 'machine_name', type: 'string' },
-            { name: 'operator_name', type: 'string' }
+            { name: 'operator_name', type: 'string' },
+            { name: 'attendance_today', type: 'boolean' }
         ]
     }
 });
