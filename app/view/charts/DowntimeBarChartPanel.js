@@ -1,6 +1,6 @@
-Ext.define('Poise.view.BarChartPanel', {
+Ext.define('Poise.view.DowntimeBarChartPanel', {
     extend: 'Ext.Panel',
-    alias: 'widget.nvd3_barchart_panel',
+    alias: 'widget.nvd3_downtime_barchart_panel',
     
     config: {
         layout: 'fit',

@@ -36,7 +36,7 @@ Ext.define('Poise.controller.Reports', {
     
     launch: function() {
         //trigger the onActiveItemChange initially to load the first chart's data
-        var downtimeTriggerObj = { config: { xtype: 'nvd3_barchart_panel' } },
+        var downtimeTriggerObj = { config: { xtype: 'nvd3_downtime_barchart_panel' } },
             me = this;
     
         //the barchart is at index 0 so when the chart is loaded we need to
@@ -89,11 +89,11 @@ Ext.define('Poise.controller.Reports', {
             chart;
         
         switch(xtype) {
-            case 'nvd3_barchart_panel':
+            case 'nvd3_downtime_barchart_panel':
                 var chart = this.getBarChart();
-                var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":98.079782601442},{"label":"G","value":13.925743130903},{"label":"H","value":5.1387322875705}]}];
-                chart.renderChartData(chartdata);
-                // this.loadChartData('chartdata/barchart.json', chart);
+                // var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":98.079782601442},{"label":"G","value":13.925743130903},{"label":"H","value":5.1387322875705}]}];
+                // chart.renderChartData(chartdata);
+                this.loadChartData('http://localhost:3000/api/v1/reports/downtime.json?ob_id=4&report_date=2016-03-25', chart);
                 break;
             case 'nvd3_linechart_panel':
                 var chart = this.getLineChart();
