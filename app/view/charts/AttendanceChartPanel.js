@@ -1,6 +1,6 @@
-Ext.define('Poise.view.DowntimeBarChartPanel', {
+Ext.define('Poise.view.AttendanceChartPanel', {
     extend: 'Ext.Panel',
-    alias: 'widget.nvd3_downtime_barchart_panel',
+    alias: 'widget.attendance_chart_panel',
     
     config: {
         layout: 'fit',
@@ -13,7 +13,7 @@ Ext.define('Poise.view.DowntimeBarChartPanel', {
                 staggerLabels: true,
                 tooltips: true,
                 showValues: true,
-                noData: "No Downtime Data Found"
+                noData: "No Attendance Data Found"
             }
         }]
     },
@@ -24,7 +24,7 @@ Ext.define('Poise.view.DowntimeBarChartPanel', {
 
     refreshCharts: function() {
         for (i = 0; i < nv.graphs.length; i++) {
-            if(nv.graphs[i].noData() == "No Downtime Data Found") {
+            if(nv.graphs[i].noData() == "No Attendance Data Found") {
                 nv.graphs[i].update();
             }
         } 

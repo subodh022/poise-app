@@ -47,19 +47,21 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.AddDowntime": "app/form/AddDowntime.js",
   "Poise.view.AddOutput": "app/form/AddOutput.js",
   "Poise.view.AddRework": "app/form/AddRework.js",
+  "Poise.view.AttendanceChartPanel": "app/view/charts/AttendanceChartPanel.js",
   "Poise.view.AttendanceList": "app/view/workstation/AttendnceList.js",
   "Poise.view.AttendanceListItem": "app/view/workstation/AttendanceListItem.js",
   "Poise.view.AttendanceView": "app/view/workstation/AttendanceView.js",
   "Poise.view.BarChartPanel": "app/view/charts/BarChartPanel.js",
-  "Poise.view.DowntimeBarChartPanel": "app/view/charts/DowntimeBarChartPanel.js",
+  "Poise.view.DowntimeChartPanel": "app/view/charts/DowntimeChartPanel.js",
   "Poise.view.DowntimeView": "app/view/workstation/DowntimeView.js",
   "Poise.view.LineChartPanel": "app/view/charts/LineChartPanel.js",
   "Poise.view.LoginForm": "app/form/LoginForm.js",
   "Poise.view.ObForm": "app/form/ObForm.js",
-  "Poise.view.OutputAvgChartPanel": "app/view/charts/OutputAvgChart.js",
+  "Poise.view.OutputChartPanel": "app/view/charts/OutputChartPanel.js",
   "Poise.view.OutputTrendChartPanel": "app/view/charts/OutputTrendChart.js",
   "Poise.view.OutputView": "app/view/workstation/OutputView.js",
   "Poise.view.ReportEntryCard": "app/view/workstation/ReportEntryCard.js",
+  "Poise.view.ReworkChartPanel": "app/view/charts/ReworkChartPanel.js",
   "Poise.view.ReworkView": "app/view/workstation/ReworkView.js",
   "Poise.view.WorkstationList": "app/view/workstation/WorkstationList.js"
 });
@@ -718,22 +720,24 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.AddDowntime": [],
   "Poise.view.AddOutput": [],
   "Poise.view.AddRework": [],
+  "Poise.view.AttendanceChartPanel": [],
   "Poise.view.AttendanceList": [],
   "Poise.view.AttendanceListItem": [],
   "Poise.view.AttendanceView": [],
   "Poise.view.BarChartPanel": [],
-  "Poise.view.DowntimeBarChartPanel": [],
+  "Poise.view.DowntimeChartPanel": [],
   "Poise.view.DowntimeView": [],
   "Poise.view.Home": [],
   "Poise.view.LineChartPanel": [],
   "Poise.view.LoginForm": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
-  "Poise.view.OutputAvgChartPanel": [],
+  "Poise.view.OutputChartPanel": [],
   "Poise.view.OutputTrendChartPanel": [],
   "Poise.view.OutputView": [],
   "Poise.view.ReportEntryCard": [],
   "Poise.view.ReportView": [],
+  "Poise.view.ReworkChartPanel": [],
   "Poise.view.ReworkView": [],
   "Poise.view.WorkstationList": []
 });
@@ -1531,6 +1535,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.AddRework": [
     "widget.addreworkform"
   ],
+  "Poise.view.AttendanceChartPanel": [
+    "widget.attendance_chart_panel"
+  ],
   "Poise.view.AttendanceList": [
     "widget.attendancelist"
   ],
@@ -1543,8 +1550,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.BarChartPanel": [
     "widget.nvd3_barchart_panel"
   ],
-  "Poise.view.DowntimeBarChartPanel": [
-    "widget.nvd3_downtime_barchart_panel"
+  "Poise.view.DowntimeChartPanel": [
+    "widget.downtime_chart_panel"
   ],
   "Poise.view.DowntimeView": [
     "widget.downtimeview"
@@ -1564,8 +1571,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.ObForm": [
     "widget.obform"
   ],
-  "Poise.view.OutputAvgChartPanel": [
-    "widget.nvd3_opavg_panel"
+  "Poise.view.OutputChartPanel": [
+    "widget.output_chart_panel"
   ],
   "Poise.view.OutputTrendChartPanel": [
     "widget.nvd3_optrend_panel"
@@ -1578,6 +1585,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.ReportView": [
     "widget.reportview"
+  ],
+  "Poise.view.ReworkChartPanel": [
+    "widget.rework_chart_panel"
   ],
   "Poise.view.ReworkView": [
     "widget.reworkview"

@@ -1,6 +1,6 @@
-Ext.define('Poise.view.OutputAvgChartPanel', {
+Ext.define('Poise.view.OutputChartPanel', {
     extend: 'Ext.Panel',
-    alias: 'widget.nvd3_opavg_panel',
+    alias: 'widget.output_chart_panel',
     
     config: {
         layout: 'fit',
