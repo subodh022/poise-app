@@ -68,6 +68,8 @@ Ext.application({
         // Ext.Loader.setPath('Ext.ux.touch', './plugins/Ext.ux.touch.SwipeTabs/src/');
         // Ext.require('Ext.ux.touch.SwipeTabs');
 
+        localStorage.clear();
+
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 

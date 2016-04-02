@@ -98,6 +98,7 @@ Ext.define('Poise.view.ObForm', {
  
     onLineChange: function(selectfield, newValue, oldValue, options) {
         localStorage.setItem('lineId', newValue);
+        localStorage.setItem('obId', '');
         var formpanel = selectfield.up('#obform');
         var obField = formpanel.down('#Ob');
         var obStore = Ext.getStore('Obs');
@@ -109,6 +110,7 @@ Ext.define('Poise.view.ObForm', {
     },
 
     setOperationBulletin: function(selectfield, newValue, oldValue, options) {
+        alert("here");
         localStorage.setItem('obId', newValue);
         this.setLineAndOb(selectfield);
     },

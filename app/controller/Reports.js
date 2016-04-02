@@ -80,19 +80,23 @@ Ext.define('Poise.controller.Reports', {
         var xtype = value.config.xtype,
             chart;
         var date_today = new Date().toLocaleDateString();
+        var ob_id = localStorage.getItem('obId');
         
         switch(xtype) {
             case 'downtime_chart_panel':
                 var chart = this.getDowntimeChart();
-                this.loadChartData('http://localhost:3000/api/v1/reports/downtime.json?ob_id=4&report_date='+date_today, chart);
+                // this.loadChartData('http://localhost:3000/api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                this.loadChartData('http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'rework_chart_panel':
                 var chart = this.getReworkChart();
-                this.loadChartData('http://localhost:3000/api/v1/reports/rework.json?ob_id=4&report_date='+date_today, chart);
+                // this.loadChartData('http://localhost:3000/api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                this.loadChartData('http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'output_chart_panel':
                 var chart = this.getOutputChart();
-                this.loadChartData('http://localhost:3000/api/v1/reports/output.json?ob_id=4&report_date='+date_today, chart);
+                // this.loadChartData('http://localhost:3000/api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                this.loadChartData('http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'nvd3_optrend_panel':
                 var chart = this.getOpTrendChart();
