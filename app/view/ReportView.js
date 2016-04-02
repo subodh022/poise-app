@@ -68,8 +68,20 @@ Ext.define('Poise.view.ReportView', {
                         minHeight: '30em'
                     },
                     {
-                        html: '<div class="chart-title">Sample Charts</div>',
-                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                html: '<div class="chart-title">Cumulative Downtime - Sections</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 1
+                            },
+                            {
+                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
+                            }
+                        ]
                     },
                     {
                         xtype: 'nvd3_linechart_panel',
@@ -83,30 +95,48 @@ Ext.define('Poise.view.ReportView', {
                 layout: 'vbox',
                 title: 'Rework',
                 itemId: 'reworkChart',
+                height: 'auto',
+                scrollable: true,
                 items: [
                     {
                         xtype: 'panel',
                         layout: 'hbox',
                         items: [
                             {
-                                html: '<div class="chart-title">Sample Charts</div>',
-                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;'
+                                html: '<div class="chart-title">Cumulative Reworks - Work Stations</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 1
                             },
                             {
-                                html: '<div class="chart-title">Date : </div>',
-                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;'
+                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
                             }
                         ]
                     },
                     {
-                        xtype: 'nvd3_downtime_barchart_panel'
+                        xtype: 'nvd3_downtime_barchart_panel',
+                        minHeight: '30em'
                     },
                     {
-                        html: '<div class="chart-title">Sample Charts</div>',
-                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                html: '<div class="chart-title">Cumulative Reworks - Sections</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 1
+                            },
+                            {
+                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
+                            }
+                        ]
                     },
                     {
-                        xtype: 'nvd3_linechart_panel'
+                        xtype: 'nvd3_linechart_panel',
+                        minHeight: '30em'
                     }
                 ]
             },
@@ -116,20 +146,79 @@ Ext.define('Poise.view.ReportView', {
                 layout: 'vbox',
                 title: 'Output',
                 itemId: 'outputChart',
+                height: 'auto',
+                scrollable: true,
                 items: [
                     {
-                        html: '<div class="chart-title">Sample Charts</div>',
-                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                html: '<div class="chart-title">Cumulative Output - Work Stations</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 1
+                            },
+                            {
+                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
+                            }
+                        ]
                     },
                     {
-                        xtype: 'nvd3_opavg_panel'
+                        xtype: 'nvd3_opavg_panel',
+                        minHeight: '30em'
                     },
                     {
-                        html: '<div class="chart-title">Sample Charts</div>',
-                        style: 'text-align: center; margin-bottom: 1em; font-weight: bold;'
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                html: '<div class="chart-title">Cumulative Output - Sections</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 1
+                            },
+                            {
+                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
+                            }
+                        ]
                     },
                     {
-                        xtype: 'nvd3_optrend_panel'
+                        xtype: 'nvd3_optrend_panel',
+                        minHeight: '30em'
+                    }
+                ]
+            },
+            {
+                xtype: 'panel',
+                name: 'attendance_container',
+                layout: 'vbox',
+                title: 'Attendance',
+                itemId: 'attendanceChart',
+                height: 'auto',
+                scrollable: true,
+                items: [
+                    {
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                html: '<div class="chart-title">Attendance Trend</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 1
+                            },
+                            {
+                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'nvd3_downtime_barchart_panel',
+                        minHeight: '30em'
                     }
                 ]
             }

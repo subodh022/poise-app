@@ -1896,6 +1896,7 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.AttendanceList": "../../app/view/workstation/AttendnceList.js",
   "Poise.view.AttendanceListItem": "../../app/view/workstation/AttendanceListItem.js",
   "Poise.view.AttendanceView": "../../app/view/workstation/AttendanceView.js",
+  "Poise.view.BarChartPanel": "../../app/view/charts/BarChartPanel.js",
   "Poise.view.DowntimeBarChartPanel": "../../app/view/charts/DowntimeBarChartPanel.js",
   "Poise.view.DowntimeView": "../../app/view/workstation/DowntimeView.js",
   "Poise.view.LineChartPanel": "../../app/view/charts/LineChartPanel.js",
@@ -2566,6 +2567,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.AttendanceList": [],
   "Poise.view.AttendanceListItem": [],
   "Poise.view.AttendanceView": [],
+  "Poise.view.BarChartPanel": [],
   "Poise.view.DowntimeBarChartPanel": [],
   "Poise.view.DowntimeView": [],
   "Poise.view.Home": [],
@@ -3383,6 +3385,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.AttendanceView": [
     "widget.attendanceview"
+  ],
+  "Poise.view.BarChartPanel": [
+    "widget.nvd3_barchart_panel"
   ],
   "Poise.view.DowntimeBarChartPanel": [
     "widget.nvd3_downtime_barchart_panel"
