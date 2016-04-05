@@ -110,7 +110,6 @@ Ext.define('Poise.view.ObForm', {
     },
 
     setOperationBulletin: function(selectfield, newValue, oldValue, options) {
-        alert("here");
         localStorage.setItem('obId', newValue);
         this.setLineAndOb(selectfield);
     },
@@ -124,5 +123,20 @@ Ext.define('Poise.view.ObForm', {
         formCmp.up("home").down("downtimeview").down("workstationlist").setStore(wsStore);
         formCmp.up("home").down("reworkview").down("workstationlist").setStore(wsStore);
         formCmp.up("home").down("outputview").down("workstationlist").setStore(wsStore);
+
+        this.loadReports();
+    },
+
+    loadReports: function() {
+        var reportsController = Poise.app.getController("Poise.controller.Reports");
+
+        var downtimeTriggerObj = { config: { xtype: 'downtime_chart_panel' } };
+        reportsController.onActiveItemChange(null, downtimeTriggerObj);
+
+        var reworkTriggerObj = { config: { xtype: 'rework_chart_panel' } };
+        reportsController.onActiveItemChange(null, reworkTriggerObj);
+
+        var outputTriggerObj = { config: { xtype: 'output_chart_panel' } };
+        reportsController.onActiveItemChange(null, outputTriggerObj);
     }
 });

@@ -21,7 +21,8 @@ Ext.define('OpenCharts.OpenCharts', {
         'OpenCharts.charts.CumulativeLineChart',
         'OpenCharts.charts.LineWithFocusChart',
         'OpenCharts.charts.PieChart',
-        'OpenCharts.charts.BulletChart'
+        'OpenCharts.charts.BulletChart',
+        'OpenCharts.charts.MultiBarChart'
     ],
     
     constructor: function(config) {

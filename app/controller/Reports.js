@@ -8,9 +8,9 @@ Ext.define('Poise.controller.Reports', {
     config: {
         refs: {
             cardContainer: 'reportview container[name=downtime_container]',
-            downtimeChart: 'downtime_chart_panel oc-barchart',
-            reworkChart: 'rework_chart_panel oc-barchart',
-            outputChart: 'output_chart_panel oc-barchart',
+            downtimeChart: 'downtime_chart_panel oc-multibarchart',
+            reworkChart: 'rework_chart_panel oc-multibarchart',
+            outputChart: 'output_chart_panel oc-multibarchart',
             opTrendChart: 'nvd3_optrend_panel oc-barchart',
             barChart: 'reportview oc-barchart',
             lineChart: 'reportview oc-linechart',
@@ -38,34 +38,34 @@ Ext.define('Poise.controller.Reports', {
     
     launch: function() {
         //trigger the onActiveItemChange initially to load the first chart's data
-        var downtimeTriggerObj = { config: { xtype: 'downtime_chart_panel' } },
-            me = this;
+        // var downtimeTriggerObj = { config: { xtype: 'downtime_chart_panel' } },
+        //     me = this;
     
-        //the barchart is at index 0 so when the chart is loaded we need to
-        //load the data
-        this.getDowntimeChart().on('chartLoaded', function(chart) {
-            me.onActiveItemChange(null, downtimeTriggerObj);
-        });
+        // //the barchart is at index 0 so when the chart is loaded we need to
+        // //load the data
+        // this.getDowntimeChart().on('chartLoaded', function(chart) {
+        //     me.onActiveItemChange(null, downtimeTriggerObj);
+        // });
 
-        //trigger the onActiveItemChange initially to load the first chart's data
-        var reworkTriggerObj = { config: { xtype: 'rework_chart_panel' } },
-            me = this;
+        // //trigger the onActiveItemChange initially to load the first chart's data
+        // var reworkTriggerObj = { config: { xtype: 'rework_chart_panel' } },
+        //     me = this;
     
-        //the barchart is at index 0 so when the chart is loaded we need to
-        //load the data
-        this.getReworkChart().on('chartLoaded', function(chart) {
-            me.onActiveItemChange(null, reworkTriggerObj);
-        });
+        // //the barchart is at index 0 so when the chart is loaded we need to
+        // //load the data
+        // this.getReworkChart().on('chartLoaded', function(chart) {
+        //     me.onActiveItemChange(null, reworkTriggerObj);
+        // });
 
-        //trigger the onActiveItemChange initially to load the first chart's data
-        var outputTriggerObj = { config: { xtype: 'output_chart_panel' } },
-            me = this;
+        // //trigger the onActiveItemChange initially to load the first chart's data
+        // var outputTriggerObj = { config: { xtype: 'output_chart_panel' } },
+        //     me = this;
     
-        //the barchart is at index 0 so when the chart is loaded we need to
-        //load the data
-        this.getOutputChart().on('chartLoaded', function(chart) {
-            me.onActiveItemChange(null, outputTriggerObj);
-        });
+        // //the barchart is at index 0 so when the chart is loaded we need to
+        // //load the data
+        // this.getOutputChart().on('chartLoaded', function(chart) {
+        //     me.onActiveItemChange(null, outputTriggerObj);
+        // });
     },
     
     onNavButtonTap: function(cmp, e, eOpts) {
@@ -74,6 +74,30 @@ Ext.define('Poise.controller.Reports', {
     
         //update the view and display the selected chart
         cardContainer.animateActiveItem(index, {type:'slide', direction:'left'});
+    },
+
+    loadChartData: function() {
+        // var downtimeTriggerObj = { config: { xtype: 'downtime_chart_panel' } },
+        //     me = this;
+        // me.onActiveItemChange(null, downtimeTriggerObj);
+
+        // var downtimeTriggerObj = { config: { xtype: 'downtime_chart_panel' } },
+        //     me = this;
+        // this.getDowntimeChart().on('chartLoaded', function(chart) {
+        //     me.onActiveItemChange(null, downtimeTriggerObj);
+        // });
+
+        // var reworkTriggerObj = { config: { xtype: 'rework_chart_panel' } },
+        //     me = this;
+        // this.getReworkChart().on('chartLoaded', function(chart) {
+        //     me.onActiveItemChange(null, reworkTriggerObj);
+        // });
+
+        // var outputTriggerObj = { config: { xtype: 'output_chart_panel' } },
+        //     me = this;
+        // this.getOutputChart().on('chartLoaded', function(chart) {
+        //     me.onActiveItemChange(null, outputTriggerObj);
+        // });
     },
     
     onActiveItemChange: function(container, value, oldValue, eOpts) {
@@ -85,24 +109,20 @@ Ext.define('Poise.controller.Reports', {
         switch(xtype) {
             case 'downtime_chart_panel':
                 var chart = this.getDowntimeChart();
-                // this.loadChartData('http://localhost:3000/api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
-                this.loadChartData('http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'rework_chart_panel':
                 var chart = this.getReworkChart();
-                // this.loadChartData('http://localhost:3000/api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
-                this.loadChartData('http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'output_chart_panel':
                 var chart = this.getOutputChart();
-                // this.loadChartData('http://localhost:3000/api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
-                this.loadChartData('http://ec2-52-36-209-187.us-west-2.compute.amazonaws.com:8080/api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'nvd3_optrend_panel':
                 var chart = this.getOpTrendChart();
                 var chartdata = [{"key":"Cumulative Return","values":[{"label":"A","value":-29.765957771107},{"label":"B","value":0},{"label":"C","value":32.807804682612},{"label":"D","value":196.45946739256},{"label":"E","value":0.19434030906893},{"label":"F","value":-98.079782601442},{"label":"G","value":-13.925743130903},{"label":"H","value":-5.1387322875705}]}];
                 chart.renderChartData(chartdata);
-                // this.loadChartData('chartdata/barchart.json', chart);
                 break;
             case 'rework_linechart_panel':
                 var chart = this.getLineChart();

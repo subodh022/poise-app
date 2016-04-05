@@ -697,6 +697,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "OpenCharts.charts.LineChart": [],
   "OpenCharts.charts.LinePlusBarChart": [],
   "OpenCharts.charts.LineWithFocusChart": [],
+  "OpenCharts.charts.MultiBarChart": [],
   "OpenCharts.charts.PieChart": [],
   "OpenCharts.charts.ScatterChart": [],
   "OpenCharts.charts.StackedAreaChart": [],
@@ -717,6 +718,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.ReportTimeData": [],
   "Poise.store.Reworks": [],
   "Poise.store.Workstations": [],
+  "Poise.util.Config": [],
   "Poise.view.AddDowntime": [],
   "Poise.view.AddOutput": [],
   "Poise.view.AddRework": [],
@@ -1482,6 +1484,9 @@ Ext.ClassManager.addNameAliasMappings({
   "OpenCharts.charts.LineWithFocusChart": [
     "widget.oc-linewithfocuschart"
   ],
+  "OpenCharts.charts.MultiBarChart": [
+    "widget.oc-multibarchart"
+  ],
   "OpenCharts.charts.PieChart": [
     "widget.oc-piechart"
   ],
@@ -1525,6 +1530,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.store.Workstations": [
     "store.workstations"
+  ],
+  "Poise.util.Config": [
+    "widget.appConfigUtil"
   ],
   "Poise.view.AddDowntime": [
     "widget.adddowntimeform"

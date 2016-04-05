@@ -14,6 +14,7 @@ Ext.application({
     name: 'Poise',
 
     requires: [
+        'Poise.util.Config',
         'Ext.MessageBox',
         'OpenCharts.OpenCharts'
     ],

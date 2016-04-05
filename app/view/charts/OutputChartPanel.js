@@ -6,7 +6,7 @@ Ext.define('Poise.view.OutputChartPanel', {
         layout: 'fit',
         flex: 2,
         items: [{
-            xtype: 'oc-barchart',
+            xtype: 'oc-multibarchart',
             itemId: 'opAvgChart',
             chartOptions: {
                 x: function(d) { return d.label; },
