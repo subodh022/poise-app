@@ -6,7 +6,7 @@ Ext.define('Poise.view.AttendanceChartPanel', {
         layout: 'fit',
         flex: 2,
         items: [{
-            xtype: 'oc-barchart',
+            xtype: 'oc-multibarchart',
             chartOptions: {
                 x: function(d) { return d.label; },
                 y: function(d) { return d.value; },

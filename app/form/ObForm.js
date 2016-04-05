@@ -138,5 +138,8 @@ Ext.define('Poise.view.ObForm', {
 
         var outputTriggerObj = { config: { xtype: 'output_chart_panel' } };
         reportsController.onActiveItemChange(null, outputTriggerObj);
+
+        var attendanceTriggerObj = { config: { xtype: 'attendance_chart_panel' } };
+        reportsController.onActiveItemChange(null, attendanceTriggerObj);
     }
 });

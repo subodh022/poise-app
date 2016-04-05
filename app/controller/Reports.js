@@ -11,6 +11,7 @@ Ext.define('Poise.controller.Reports', {
             downtimeChart: 'downtime_chart_panel oc-multibarchart',
             reworkChart: 'rework_chart_panel oc-multibarchart',
             outputChart: 'output_chart_panel oc-multibarchart',
+            attendanceChart: 'attendance_chart_panel oc-multibarchart',
             opTrendChart: 'nvd3_optrend_panel oc-barchart',
             barChart: 'reportview oc-barchart',
             lineChart: 'reportview oc-linechart',
@@ -118,6 +119,10 @@ Ext.define('Poise.controller.Reports', {
             case 'output_chart_panel':
                 var chart = this.getOutputChart();
                 this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                break;
+            case 'attendance_chart_panel':
+                var chart = this.getAttendanceChart();
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/attendance.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'nvd3_optrend_panel':
                 var chart = this.getOpTrendChart();

@@ -59,6 +59,16 @@ Ext.define('Poise.view.ReportView', {
                                 flex: 1
                             },
                             {
+                                xtype: 'button',
+                                text: 'Refresh',
+                                iconCls: 'refresh',
+                                ui: 'confirm',
+                                width: 'auto',
+                                height: '1em',
+                                align: 'center',
+                                action: 'refresh-chart'
+                            },
+                            {
                                 html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
                                 style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
                                 flex: 2
@@ -207,15 +217,15 @@ Ext.define('Poise.view.ReportView', {
                         layout: 'hbox',
                         items: [
                             {
-                                html: '<div class="chart-title">Attendance Trend</div>',
+                                html: '<div class="chart-title">Attendance Trend - Past Week</div>',
                                 style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
                                 flex: 1
-                            },
-                            {
-                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
-                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
-                                flex: 2
                             }
+                            // {
+                            //     html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
+                            //     style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
+                            //     flex: 2
+                            // }
                         ]
                     },
                     {
