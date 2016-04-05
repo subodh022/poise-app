@@ -14,7 +14,7 @@ Ext.define('Poise.view.ReportEntryCard', {
             styleHtmlContent: true
         },
         tabBar: {
-            docked: 'top',
+            docked: 'bottom',
             layout: {
                 pack: 'center'
             },
@@ -29,19 +29,31 @@ Ext.define('Poise.view.ReportEntryCard', {
             },
             {
                 xtype: 'downtimeview',
-                title: 'Downtime'
+                title: 'Downtime',
+                tab: {
+                    cls : 'no-icon'
+                }
             },
             {
                 xtype: 'reworkview',
-                title: "Rework"
+                title: "Rework",
+                tab: {
+                    cls : 'no-icon'
+                }
             },
             {
                 xtype: 'outputview',
-                title: "Output"
+                title: "Output",
+                tab: {
+                    cls : 'no-icon'
+                }
             },
             {
                 xtype: 'attendanceview',
-                title: "Attendance"
+                title: "Attendance",
+                tab: {
+                    cls : 'no-icon'
+                }
             }
         ]
     }

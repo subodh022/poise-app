@@ -56,7 +56,22 @@ Ext.define('Poise.view.OutputView', {
                                     fields: ['id'],
                                     data: [
                                         {
-                                            id: (new Date().toLocaleDateString())
+                                            id: (Poise.util.Config.addDays(new Date(), 0).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -1).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -2).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -3).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -4).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -5).toLocaleDateString())
                                         }
                                     ]
                                 },

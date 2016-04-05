@@ -41,3 +41,26 @@
 	font-style: italic;
 	color: #aaa;
 }
+
+.x-tabbar.x-docked-bottom .x-tab.no-icon {
+    height : 1,8em;
+    border: 0 none;
+    border-radius: 0.9em;
+    height: 1.8em;
+    padding: 0.5em 0.8em;
+}
+
+.x-tabbar.x-docked-bottom .x-tab.no-icon .x-button-icon.x-hidden {
+    display : none;
+}
+
+.x-tabbar.x-docked-bottom .x-tab.no-icon .x-button-label, .x-tabbar.x-docked-bottom .x-tab.no-icon .x-badge {
+    font-size   : 15px;
+}
+
+.chart-header {
+	background-color: white !important;
+	background-image: none !important;
+	border-bottom: 1px solid #bbb !important;
+	padding: 0.5em 1em;
+}
