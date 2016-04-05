@@ -14,7 +14,8 @@ Ext.define('Poise.controller.Reports', {
             attendanceChart: 'attendance_chart_panel oc-multibarchart',
             downtimeRefresh: 'button[action=refresh-downtime-chart]',
             reworkRefresh: 'button[action=refresh-rework-chart]',
-            outputRefresh: 'button[action=refresh-output-chart]'
+            outputRefresh: 'button[action=refresh-output-chart]',
+            attendanceRefresh: 'button[action=refresh-attendance-chart]'
         },
         
         control: {            
@@ -28,6 +29,10 @@ Ext.define('Poise.controller.Reports', {
             
             outputRefresh: {
                 tap: 'refreshOutputChart'
+            },
+
+            attendanceRefresh: {
+                tap: 'refreshAttendanceChart'
             }
         }
     },
@@ -45,6 +50,11 @@ Ext.define('Poise.controller.Reports', {
     refreshOutputChart: function() {
         var outputTriggerObj = { config: { xtype: 'output_chart_panel' } };
         this.onActiveItemChange(null, outputTriggerObj);
+    },
+
+    refreshAttendanceChart: function() {
+        var attnTriggerObj = { config: { xtype: 'attendance_chart_panel' } };
+        this.onActiveItemChange(null, attnTriggerObj);
     },
     
     onActiveItemChange: function(container, value, oldValue, eOpts) {
