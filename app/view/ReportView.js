@@ -7,7 +7,7 @@ Ext.define('Poise.view.ReportView', {
         'Poise.view.LineChartPanel',
         'Poise.view.DowntimeChartPanel',
         'Poise.view.OutputChartPanel',
-        'Poise.view.OutputTrendChartPanel',
+        'Poise.view.SectionOutputChartPanel',
         'Poise.view.ReworkChartPanel',
         'Poise.view.AttendanceChartPanel'
     ],
@@ -166,14 +166,122 @@ Ext.define('Poise.view.ReportView', {
                                 action: 'refresh-output-chart'
                             },
                             {
-                                html: '<div class="chart-title">Date : ' + new Date().toLocaleDateString() + '</div>',
-                                style: 'text-align: right; margin-bottom: 1em; font-weight: bold;',
-                                flex: 2
+                                xtype: 'selectfield',
+                                itemId: 'reportDate',
+                                displayField: 'id',
+                                valueField: 'id',
+                                ui: 'normal',
+                                flex: 2,
+                                store: {
+                                    fields: ['id'],
+                                    data: [
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), 0).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -1).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -2).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -3).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -4).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -5).toLocaleDateString())
+                                        }
+                                    ]
+                                },
+                                style: {
+                                    'padding-top': '0.25em'
+                                }
                             }
                         ]
                     },
                     {
                         xtype: 'output_chart_panel',
+                        minHeight: '30em'
+                    }
+                ]
+            },
+            {
+                xtype: 'panel',
+                name: 'section_output_container',
+                layout: 'vbox',
+                title: 'Section Output',
+                itemId: 'sectionOutputChart',
+                height: 'auto',
+                scrollable: true,
+                padding: 0,
+                tab: {
+                    cls : 'no-icon'
+                },
+                items: [
+                    {
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        cls: 'chart-header',
+                        items: [
+                            {
+                                html: '<div class="chart-title">Cumulative Output - Work Stations</div>',
+                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
+                                flex: 2
+                            },
+                            {
+                                xtype: 'button',
+                                text: 'Refresh Data',
+                                iconCls: 'refresh',
+                                ui: 'confirm',
+                                width: 'auto',
+                                height: '2.5em',
+                                align: 'center',
+                                action: 'refresh-section-output-chart'
+                            },
+                            {
+                                xtype: 'selectfield',
+                                itemId: 'reportDate',
+                                displayField: 'id',
+                                valueField: 'id',
+                                ui: 'normal',
+                                align: 'right',
+                                flex: 2,
+                                style: {
+                                    'text-align': 'right'
+                                },
+                                store: {
+                                    fields: ['id'],
+                                    data: [
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), 0).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -1).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -2).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -3).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -4).toLocaleDateString())
+                                        },
+                                        {
+                                            id: (Poise.util.Config.addDays(new Date(), -5).toLocaleDateString())
+                                        }
+                                    ]
+                                },
+                                style: {
+                                    'padding-top': '0.25em'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'section_output_chart_panel',
                         minHeight: '30em'
                     }
                 ]

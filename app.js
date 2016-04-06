@@ -42,8 +42,6 @@ Ext.application({
 
     controllers: [
         'WorkstationController',
-        'BarChart',
-        'LineChart',
         'Reports'
     ],
 

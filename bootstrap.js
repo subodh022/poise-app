@@ -63,6 +63,7 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.ReportEntryCard": "app/view/workstation/ReportEntryCard.js",
   "Poise.view.ReworkChartPanel": "app/view/charts/ReworkChartPanel.js",
   "Poise.view.ReworkView": "app/view/workstation/ReworkView.js",
+  "Poise.view.SectionOutputChartPanel": "app/view/charts/SectionOutputChartPanel.js",
   "Poise.view.WorkstationList": "app/view/workstation/WorkstationList.js"
 });
 
@@ -702,8 +703,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "OpenCharts.charts.ScatterChart": [],
   "OpenCharts.charts.StackedAreaChart": [],
   "OpenCharts.charts.StackedBarChart": [],
-  "Poise.controller.BarChart": [],
-  "Poise.controller.LineChart": [],
   "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
@@ -741,6 +740,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.ReportView": [],
   "Poise.view.ReworkChartPanel": [],
   "Poise.view.ReworkView": [],
+  "Poise.view.SectionOutputChartPanel": [],
   "Poise.view.WorkstationList": []
 });
 
@@ -1499,8 +1499,6 @@ Ext.ClassManager.addNameAliasMappings({
   "OpenCharts.charts.StackedBarChart": [
     "widget.oc-stackedbarchart"
   ],
-  "Poise.controller.BarChart": [],
-  "Poise.controller.LineChart": [],
   "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
@@ -1599,6 +1597,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.ReworkView": [
     "widget.reworkview"
+  ],
+  "Poise.view.SectionOutputChartPanel": [
+    "widget.section_output_chart_panel"
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"

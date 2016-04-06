@@ -11,10 +11,12 @@ Ext.define('Poise.controller.Reports', {
             downtimeChart: 'downtime_chart_panel oc-multibarchart',
             reworkChart: 'rework_chart_panel oc-multibarchart',
             outputChart: 'output_chart_panel oc-multibarchart',
+            sectionOutputChart: 'section_output_chart_panel oc-multibarchart',
             attendanceChart: 'attendance_chart_panel oc-multibarchart',
             downtimeRefresh: 'button[action=refresh-downtime-chart]',
             reworkRefresh: 'button[action=refresh-rework-chart]',
             outputRefresh: 'button[action=refresh-output-chart]',
+            sectionOutputRefresh: 'button[action=refresh-section-output-chart]',
             attendanceRefresh: 'button[action=refresh-attendance-chart]'
         },
         
@@ -29,6 +31,10 @@ Ext.define('Poise.controller.Reports', {
             
             outputRefresh: {
                 tap: 'refreshOutputChart'
+            },
+            
+            sectionOutputRefresh: {
+                tap: 'refreshSectionOutputChart'
             },
 
             attendanceRefresh: {
@@ -50,6 +56,11 @@ Ext.define('Poise.controller.Reports', {
     refreshOutputChart: function() {
         var outputTriggerObj = { config: { xtype: 'output_chart_panel' } };
         this.onActiveItemChange(null, outputTriggerObj);
+    },
+
+    refreshSectionOutputChart: function() {
+        var sectionOutputTriggerObj = { config: { xtype: 'section_output_chart_panel' } };
+        this.onActiveItemChange(null, sectionOutputTriggerObj);
     },
 
     refreshAttendanceChart: function() {
@@ -74,7 +85,13 @@ Ext.define('Poise.controller.Reports', {
                 break;
             case 'output_chart_panel':
                 var chart = this.getOutputChart();
+                date_today = chart.up("#outputChart").down("#reportDate").getValue();
                 this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                break;
+            case 'section_output_chart_panel':
+                var chart = this.getSectionOutputChart();
+                date_today = chart.up("#sectionOutputChart").down("#reportDate").getValue();
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/section_output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'attendance_chart_panel':
                 var chart = this.getAttendanceChart();
