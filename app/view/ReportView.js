@@ -171,6 +171,7 @@ Ext.define('Poise.view.ReportView', {
                                 displayField: 'id',
                                 valueField: 'id',
                                 ui: 'normal',
+                                cls: 'right-aligned',
                                 flex: 2,
                                 store: {
                                     fields: ['id'],
@@ -246,7 +247,7 @@ Ext.define('Poise.view.ReportView', {
                                 displayField: 'id',
                                 valueField: 'id',
                                 ui: 'normal',
-                                align: 'right',
+                                cls: 'right-aligned',
                                 flex: 2,
                                 style: {
                                     'text-align': 'right'
