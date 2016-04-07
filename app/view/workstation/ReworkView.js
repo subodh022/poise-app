@@ -49,31 +49,12 @@ Ext.define('Poise.view.ReworkView', {
                             {
                                 xtype: 'selectfield',
                                 itemId: 'reportDate',
-                                displayField: 'id',
+                                displayField: 'label',
                                 valueField: 'id',
                                 ui: 'normal',
                                 store: {
-                                    fields: ['id'],
-                                    data: [
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), 0).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -1).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -2).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -3).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -4).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -5).toLocaleDateString())
-                                        }
-                                    ]
+                                    fields: ['id', 'label'],
+                                    data: Poise.util.Config.lastSevenDays()
                                 },
                                 style: {
                                     'padding-top': '0.75em'

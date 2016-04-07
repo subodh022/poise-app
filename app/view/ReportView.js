@@ -168,33 +168,14 @@ Ext.define('Poise.view.ReportView', {
                             {
                                 xtype: 'selectfield',
                                 itemId: 'reportDate',
-                                displayField: 'id',
+                                displayField: 'label',
                                 valueField: 'id',
                                 ui: 'normal',
                                 cls: 'right-aligned',
                                 flex: 2,
                                 store: {
-                                    fields: ['id'],
-                                    data: [
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), 0).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -1).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -2).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -3).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -4).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -5).toLocaleDateString())
-                                        }
-                                    ]
+                                    fields: ['id', 'label'],
+                                    data: Poise.util.Config.lastSevenDays()
                                 },
                                 style: {
                                     'padding-top': '0.25em'
@@ -244,7 +225,7 @@ Ext.define('Poise.view.ReportView', {
                             {
                                 xtype: 'selectfield',
                                 itemId: 'reportDate',
-                                displayField: 'id',
+                                displayField: 'label',
                                 valueField: 'id',
                                 ui: 'normal',
                                 cls: 'right-aligned',
@@ -253,27 +234,8 @@ Ext.define('Poise.view.ReportView', {
                                     'text-align': 'right'
                                 },
                                 store: {
-                                    fields: ['id'],
-                                    data: [
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), 0).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -1).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -2).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -3).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -4).toLocaleDateString())
-                                        },
-                                        {
-                                            id: (Poise.util.Config.addDays(new Date(), -5).toLocaleDateString())
-                                        }
-                                    ]
+                                    fields: ['id', 'label'],
+                                    data: Poise.util.Config.lastSevenDays()
                                 },
                                 style: {
                                     'padding-top': '0.25em'
