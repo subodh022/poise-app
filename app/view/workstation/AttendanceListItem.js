@@ -77,7 +77,7 @@ Ext.define('Poise.view.AttendanceListItem', {
 
     onToggleChange: function (field, newValue, oldValue, eOpts) {
         Ext.Ajax.request({
-            url: 'http://localhost:3000/api/v1/record_attendance',
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/record_attendance',
             method: 'POST',          
             params: {
                 work_station_id: field.up("attendancelistitem").down("#workStationId").getValue(),

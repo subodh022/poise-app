@@ -14,7 +14,6 @@ Ext.define('Poise.view.AddDowntime', {
         margin: '10',
         scrollable: true,
         height: '100%',
-        url: 'http://localhost:3000/api/v1/machine_downtimes.json',
 
         items: [
             {
