@@ -7,7 +7,7 @@ Ext.define('Poise.view.ReportEntryCard', {
     config: {
         width: '100%',
         height: '100%',
-        title: 'Report Entry',
+        title: 'Log Data',
         iconCls: 'compose',
         autoDestroy: true,
         defaults: {

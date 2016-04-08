@@ -10,7 +10,9 @@ Ext.define('Poise.model.Workstation', {
             { name: 'operation_name', type: 'string' },
             { name: 'machine_name', type: 'string' },
             { name: 'operator_name', type: 'string' },
-            { name: 'attendance_today', type: 'boolean' }
-        ]
+            { name: 'attendance_today', type: 'boolean' },
+            { name: 'bg_color', type: 'string' }
+        ],
+        hasMany: {model: 'Poise.model.Output', name: 'outputs'}
     }
 });

@@ -8,7 +8,8 @@ Ext.define('Poise.view.ObForm', {
         'Ext.field.Select',
         'Poise.store.Lines',
         'Poise.store.ObStore',
-        'Poise.store.Workstations'
+        'Poise.store.Workstations',
+        'Poise.store.DynamicWorkstations'
     ],
 
     config: {
@@ -116,13 +117,18 @@ Ext.define('Poise.view.ObForm', {
 
     setLineAndOb: function(formCmp, e, eOpts) {
         var wsStore = Ext.getStore('Workstations');
+        var dynamicWsStore = Ext.getStore('DynamicWorkstations');
         var obId = localStorage.getItem('obId');
         wsStore.load({
+            params: {'operation_bulletin_id': obId}
+        });
+        dynamicWsStore.load({
             params: {'operation_bulletin_id': obId}
         });
         formCmp.up("home").down("downtimeview").down("workstationlist").setStore(wsStore);
         formCmp.up("home").down("reworkview").down("workstationlist").setStore(wsStore);
         formCmp.up("home").down("outputview").down("workstationlist").setStore(wsStore);
+        formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
 
         this.loadReports();
     },

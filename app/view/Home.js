@@ -4,9 +4,11 @@ Ext.define('Poise.view.Home', {
     
     requires: [
         'Poise.view.ReportEntryCard',
-        'Poise.view.WorkstationList',
         'Poise.view.ObForm',
-        'Poise.view.ReportView'
+        'Poise.view.ReportView',
+        'Poise.view.DynamicView',
+        'Poise.view.WorkstationList',
+        'Poise.view.DynamicWorkstationList'
     ],
     
     config: {
@@ -18,6 +20,7 @@ Ext.define('Poise.view.Home', {
         },
 
         fullscreen: true,
+        cls: 'main-tabs',
 
         items: [
             {
@@ -28,6 +31,9 @@ Ext.define('Poise.view.Home', {
             },
             {
                 xtype: 'reportview'
+            },
+            {
+                xtype: 'dynamic_view'
             }
         ]
     }

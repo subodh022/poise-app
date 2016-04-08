@@ -15,6 +15,7 @@ Ext.define('Poise.view.AttendanceList', {
         emptyText: "No Workstation Added for Selected Operation Bulletin",
         grouped: true,
         defaultType: 'attendancelistitem',
-        scrollable: true
+        scrollable: true,
+        cls: 'white-bg'
     }
 });

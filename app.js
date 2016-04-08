@@ -35,6 +35,7 @@ Ext.application({
 
     stores: [
         'Workstations',
+        'DynamicWorkstations',
         'Lines',
         'ObStore',
         'ChartData'

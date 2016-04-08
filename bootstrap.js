@@ -36,6 +36,7 @@ Ext.Loader.addClassPathMappings({
   "OpenCharts.charts.StackedBarChart": "OpenCharts/charts/StackedBarChart.js",
   "Poise": "app",
   "Poise.model.Downtime": "app/model/DowntimeModel.js",
+  "Poise.model.DynamicWorkstation": "app/model/DynamicWorkstationModel.js",
   "Poise.model.Output": "app/model/OutputModel.js",
   "Poise.model.Rework": "app/model/ReworkModel.js",
   "Poise.model.Workstation": "app/model/WorkstationModel.js",
@@ -54,6 +55,8 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.BarChartPanel": "app/view/charts/BarChartPanel.js",
   "Poise.view.DowntimeChartPanel": "app/view/charts/DowntimeChartPanel.js",
   "Poise.view.DowntimeView": "app/view/workstation/DowntimeView.js",
+  "Poise.view.DynamicView": "app/view/Dynamic/DynamicView.js",
+  "Poise.view.DynamicWorkstationList": "app/view/Dynamic/DynamicWorkstationList.js",
   "Poise.view.LineChartPanel": "app/view/charts/LineChartPanel.js",
   "Poise.view.LoginForm": "app/form/LoginForm.js",
   "Poise.view.ObForm": "app/form/ObForm.js",
@@ -706,11 +709,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
+  "Poise.model.DynamicWorkstation": [],
   "Poise.model.Output": [],
   "Poise.model.Rework": [],
   "Poise.model.Workstation": [],
   "Poise.store.ChartData": [],
   "Poise.store.Downtimes": [],
+  "Poise.store.DynamicWorkstations": [],
   "Poise.store.Lines": [],
   "Poise.store.ObStore": [],
   "Poise.store.Outputs": [],
@@ -728,6 +733,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.BarChartPanel": [],
   "Poise.view.DowntimeChartPanel": [],
   "Poise.view.DowntimeView": [],
+  "Poise.view.DynamicView": [],
+  "Poise.view.DynamicWorkstationList": [],
   "Poise.view.Home": [],
   "Poise.view.LineChartPanel": [],
   "Poise.view.LoginForm": [],
@@ -1502,6 +1509,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
+  "Poise.model.DynamicWorkstation": [],
   "Poise.model.Output": [],
   "Poise.model.Rework": [],
   "Poise.model.Workstation": [],
@@ -1510,6 +1518,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.store.Downtimes": [
     "store.downtimes"
+  ],
+  "Poise.store.DynamicWorkstations": [
+    "store.dynamic_workstations"
   ],
   "Poise.store.Lines": [
     "store.lines"
@@ -1561,6 +1572,13 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.DowntimeView": [
     "widget.downtimeview"
+  ],
+  "Poise.view.DynamicView": [
+    "widget.dynamic_view",
+    "widget.dynamicview"
+  ],
+  "Poise.view.DynamicWorkstationList": [
+    "widget.dynamic_workstation_list"
   ],
   "Poise.view.Home": [
     "widget.home"

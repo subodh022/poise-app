@@ -14,10 +14,13 @@ Ext.define('Poise.view.WorkstationList', {
         title: 'Workstations',
         emptyText: "No Workstation Added for Selected Operation Bulletin",
         grouped: true,
+        cls: 'dynamic-list white-bg',
         itemTpl: [
-            '<div>Section: {section_name}</div>',
-            '<div>Operation: {operation_name}</div>',
-            '<div>Machine: {machine_name}</div>'
+            '<div class="dynamic">'+
+                '<div class="list-element"><span class="icon-custom">x</span> {operation_name}</div>'+
+                '<div class="list-element"><span class="icon-custom">/</span> {machine_name}</div>'+
+                '<div class="list-element"><span class="icon-custom">U</span> {operator_name}</div>'+
+             '</div>'
         ],
 
         items: [

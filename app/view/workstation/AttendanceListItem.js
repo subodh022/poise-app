@@ -11,6 +11,7 @@ Ext.define('Poise.view.AttendanceListItem', {
         defaults: {
             margin: 5
         },
+        cls: 'white-bg',
 
         items: [ 
             {
@@ -34,7 +35,7 @@ Ext.define('Poise.view.AttendanceListItem', {
             {
                 xtype: 'togglefield',
                 name: 'attendance',
-                labelWidth: '40%',
+                height: '80%',
                 itemId: "toggleAttendance",
                 style: "background-color: inherit"
             },
@@ -62,9 +63,9 @@ Ext.define('Poise.view.AttendanceListItem', {
     updateRecord: function(record) {
         var me = this;
 
-        me.down('#operationCmp').setHtml(record.get('operation_name'));
-        me.down('#machineCmp').setHtml(record.get('machine_name'));
-        me.down('#operatorCmp').setHtml(record.get('operator_name'));
+        me.down('#operationCmp').setHtml('<span class="icon-custom">x</span>' + record.get('operation_name'));
+        me.down('#machineCmp').setHtml('<span class="icon-custom">/</span>' + record.get('machine_name'));
+        me.down('#operatorCmp').setHtml('<span class="icon-custom">U</span>' + record.get('operator_name'));
         me.down('#workStationId').setValue(record.get('id'));
         me.down('#loggedAt').setValue(new Date().toLocaleDateString());
         var togglefield = me.down('#toggleAttendance');
