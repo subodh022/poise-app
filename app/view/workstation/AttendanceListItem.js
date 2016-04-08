@@ -67,7 +67,7 @@ Ext.define('Poise.view.AttendanceListItem', {
         me.down('#machineCmp').setHtml('<span class="icon-custom">/</span>' + record.get('machine_name'));
         me.down('#operatorCmp').setHtml('<span class="icon-custom">U</span>' + record.get('operator_name'));
         me.down('#workStationId').setValue(record.get('id'));
-        me.down('#loggedAt').setValue(new Date().toLocaleDateString());
+        // me.down('#loggedAt').setValue(me.up("#attendanceView").down("#reportDate").getValue());
         var togglefield = me.down('#toggleAttendance');
         togglefield.suspendEvents();
         togglefield.setValue(record.get('attendance_today') ? 1 : 0);
@@ -81,7 +81,7 @@ Ext.define('Poise.view.AttendanceListItem', {
             method: 'POST',          
             params: {
                 work_station_id: field.up("attendancelistitem").down("#workStationId").getValue(),
-                logged_at: field.up("attendancelistitem").down("#loggedAt").getValue(),
+                logged_at: field.up("#attendanceView").down("#reportDate").getValue(),
                 present: field.getValue()
             },
             success: function(){console.log('success');},                                    
