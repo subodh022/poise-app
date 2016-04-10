@@ -57,7 +57,7 @@ Ext.define('Poise.view.ReworkView', {
                                     data: Poise.util.Config.lastSevenDays()
                                 },
                                 style: {
-                                    'padding-top': '0.75em'
+                                    'padding-top': '0.55em'
                                 }
                             }
                         ]

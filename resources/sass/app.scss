@@ -10,6 +10,20 @@
 @include icon('user');
 @include icon('chart2');
 
+// Custom icon-font mixin class
+@include icon-font('CustomIcons', inline-font-files(
+'fontAwesome/fontawesome-webfont.woff', woff,
+'fontAwesome/fontawesome-webfont.ttf', truetype,
+'fontAwesome/fontawesome-webfont.svg', svg,
+'fontAwesome/fontawesome-webfont.eot', eot
+));
+
+// Custom Icons
+@include icon("menu", '\f0c9', "CustomIcons");
+@include icon("mic", '\f130', "CustomIcons");
+@include icon("cab", '\f1b9', "CustomIcons");
+@include icon("line-chart", '\f201', "CustomIcons");
+
 #ext-tabbar-1 .x-tab {
 	margin: 0 0.2em;
 	padding: 0.2em !important;
@@ -121,4 +135,43 @@
 .white-bg {
 	background-color: #fff;
 	border-bottom: 1px solid #dedede;
+}
+
+.table-header {
+	color: #333;
+    margin: 1em 0;
+    text-shadow: 0 1px 1px #fff;
+    font-weight: bold;
+}
+
+.table-header i {
+	margin-right: 0.3em;
+}
+
+.table i {
+	color: #aaa;
+}
+
+.boxed {
+    border-right: 1px solid #ccc;
+    display: inline-table;
+    float: left;
+    height: 100%;
+    padding: 8px 0.5em;
+    width: 33.3%;
+}
+
+.op-boxed {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    float: left;
+    height: 100%;
+    padding: 8px 0.5em;
+    width: 50%;
+}
+
+.no-padding {
+	padding: 0 !important;
+	height: 100%;
 }

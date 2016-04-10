@@ -37,10 +37,10 @@ Ext.define('Poise.view.AttendanceView', {
                                 ui: 'normal',
                                 store: {
                                     fields: ['id','label'],
-                                    data: Poise.util.Config.lastSevenDays()
+                                    data: Poise.util.Config.currentDate()
                                 },
                                 style: {
-                                    'padding-top': '0.75em'
+                                    'padding-top': '0.55em'
                                 }
                             }
                         ]

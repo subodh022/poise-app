@@ -18,17 +18,23 @@ Ext.define('Poise.view.AddRework', {
         items: [
             {
                 xtype: 'hiddenfield',
-                name: 'work_station_id',
-                value: 123
-            },
-            {
-                xtype: 'hiddenfield',
-                name: 'logged_at',
-                value: 123
+                name: 'work_station_id'
             },
             {
                 xtype: 'fieldset',
                 title: "Add Rework",
+                margin: '10',
+                items: [
+                    {
+                        xtype: 'textfield',
+                        label: 'Logged At',
+                        name: 'logged_at',
+                        disabled: true
+                    }
+                ]                
+            },
+            {
+                xtype: 'fieldset',
                 margin: '10',
                 items: [
                     {

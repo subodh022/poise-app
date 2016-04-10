@@ -21,12 +21,20 @@ Ext.define('Poise.view.AddDowntime', {
                 name: 'work_station_id'
             },
             {
-                xtype: 'hiddenfield',
-                name: 'logged_at'
+                xtype: 'fieldset',
+                title: "Add Downtime",
+                margin: '10',
+                items: [
+                    {
+                        xtype: 'textfield',
+                        label: 'Logged At',
+                        name: 'logged_at',
+                        disabled: true
+                    }
+                ]                
             },
             {
                 xtype: 'fieldset',
-                title: "Add Downtime",
                 margin: '10',
                 items: [
                     {
@@ -34,8 +42,7 @@ Ext.define('Poise.view.AddDowntime', {
                         label: 'Downtime (Minutes)',
                         name: 'downtime'
                     }
-                ]
-                
+                ]                
             },
             {
                 xtype: 'fieldset',
@@ -46,8 +53,7 @@ Ext.define('Poise.view.AddDowntime', {
                         label: 'Remarks',
                         name: 'remarks'
                     }
-                ]
-                
+                ]                
             },
             {
                 xtype: 'panel',

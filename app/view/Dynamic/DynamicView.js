@@ -37,7 +37,7 @@ Ext.define('Poise.view.DynamicView', {
                             {
                                 xtype: 'label',
                                 styleHtmlContent: true,
-                                html: '<span>For Date : </span>'
+                                html: '<span>Date : </span>'
                             },
                             {
                                 xtype: 'selectfield',
@@ -47,11 +47,22 @@ Ext.define('Poise.view.DynamicView', {
                                 ui: 'normal',
                                 store: {
                                     fields: ['id', 'label'],
-                                    data: Poise.util.Config.lastSevenDays()
+                                    data: Poise.util.Config.currentDate()
                                 },
                                 style: {
-                                    'padding-top': '0.75em'
+                                    'padding-top': '0.55em',
+                                    'font-size': '0.75em'
                                 }
+                            },
+                            {
+                                xtype: 'button',
+                                text: 'Refresh List',
+                                iconCls: 'refresh',
+                                ui: 'confirm',
+                                width: 'auto',
+                                height: '2em',
+                                align: 'right',
+                                action: 'refresh-dynamic-list'
                             }
                         ]
                     },

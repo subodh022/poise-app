@@ -16,7 +16,7 @@ Ext.define('Poise.view.ReportView', {
         width: '100%',
         height: 'auto',
         title: 'View Reports',
-        iconCls: 'chart2',
+        iconCls: 'line-chart',
         autoDestroy: true,
         defaults: {
             styleHtmlContent: true

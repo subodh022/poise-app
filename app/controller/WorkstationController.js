@@ -65,9 +65,6 @@ Ext.define('Poise.controller.WorkstationController', {
             },
             "listView": {
                 itemtap: 'onItemTapAction'
-            },
-            "searchButton": {
-                tap: 'searchWorkstation'
             }
         }
     },
@@ -117,26 +114,13 @@ Ext.define('Poise.controller.WorkstationController', {
         // Ext.Msg.alert('', 'The operation bulletin selected is: ' + record.get('operation_bulletin_style'));
     },
 
-    searchStudent: function (button, e, eOpts) {
-        var listView = this.getListView(),
-            searchValue = listView.down('#txtSearchText').getValue(),
-            store = listView.getStore();
-
-        listView.setScrollToTopOnRefresh(true);
-        store.data.clear();
-        store.getProxy()._extraParams.value = searchValue;
-        store.loadPage(1, function (records, operation, success) {
-            listView.refresh();
-            listView.setScrollToTopOnRefresh(true);
-        });
-    },
-
     showDowntimeForm: function (target, record) {
         var view = Ext.create('Poise.view.AddDowntime');        
         target.up('#downtimeView').push(view);
         var loggedAt = view.up("#downtimeView").down("#reportDate").getValue() + " " + view.up("#downtimeView").down("#reportTime").getValue();
         view.down("hiddenfield[name=work_station_id]").setValue(record.id);
-        view.down("hiddenfield[name=logged_at]").setValue(loggedAt);
+        view.down("textfield[name=logged_at]").setValue(loggedAt);
+        this.loadData("downtime", record.id, loggedAt, view);
     },
 
     showReworkForm: function (target, record) {
@@ -144,7 +128,8 @@ Ext.define('Poise.controller.WorkstationController', {
         target.up('#reworkView').push(view);
         var loggedAt = view.up("#reworkView").down("#reportDate").getValue() + " " + view.up("#reworkView").down("#reportTime").getValue();
         view.down("hiddenfield[name=work_station_id]").setValue(record.id);
-        view.down("hiddenfield[name=logged_at]").setValue(loggedAt);
+        view.down("textfield[name=logged_at]").setValue(loggedAt);
+        this.loadData("rework", record.id, loggedAt, view);
     },
 
     showOutputForm: function (target, record) {
@@ -152,7 +137,8 @@ Ext.define('Poise.controller.WorkstationController', {
         target.up('#outputView').push(view);
         var loggedAt = view.up("#outputView").down("#reportDate").getValue() + " " + view.up("#outputView").down("#reportTime").getValue();
         view.down("hiddenfield[name=work_station_id]").setValue(record.id);
-        view.down("hiddenfield[name=logged_at]").setValue(loggedAt);
+        view.down("textfield[name=logged_at]").setValue(loggedAt);
+        this.loadData("output", record.id, loggedAt, view);
     },
 
     goBackToDowntimeView: function(button, e, eOpts){
@@ -165,5 +151,19 @@ Ext.define('Poise.controller.WorkstationController', {
 
     goBackToOutputView: function(button, e, eOpts){
         button.up("#outputView").pop();
+    },
+    
+    loadData: function(type, ws_id, logged_at, view) {
+        Ext.Ajax.request({
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/work_stations/' + ws_id + '/' + type + '.json?logged_at=' + logged_at,
+            success: function(response){
+                var data = Ext.JSON.decode(response.responseText);
+                if(data.length != 0) {
+                    view.down("textfield[name="+type+"]").setValue(data[0][type]);
+                    view.down("textareafield[name=remarks]").setValue(data[0]['remarks']);
+                    view.down("button[action="+type+"-save]").setText("Update");
+                }
+            }
+        });
     }
 });

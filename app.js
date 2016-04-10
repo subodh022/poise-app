@@ -15,6 +15,7 @@ Ext.application({
 
     requires: [
         'Poise.util.Config',
+        'Poise.util.TableComponent',
         'Ext.MessageBox',
         'OpenCharts.OpenCharts'
     ],
@@ -43,7 +44,8 @@ Ext.application({
 
     controllers: [
         'WorkstationController',
-        'Reports'
+        'Reports',
+        'DynamicBalancing'
     ],
 
     icon: {

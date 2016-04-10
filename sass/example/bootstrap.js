@@ -1906,13 +1906,17 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.LineChartPanel": "../../app/view/charts/LineChartPanel.js",
   "Poise.view.LoginForm": "../../app/form/LoginForm.js",
   "Poise.view.ObForm": "../../app/form/ObForm.js",
+  "Poise.view.OperatorsView": "../../app/view/Dynamic/OperatorsView.js",
+  "Poise.view.OptionsView": "../../app/view/Dynamic/OptionsView.js",
   "Poise.view.OutputChartPanel": "../../app/view/charts/OutputChartPanel.js",
   "Poise.view.OutputTrendChartPanel": "../../app/view/charts/OutputTrendChart.js",
   "Poise.view.OutputView": "../../app/view/workstation/OutputView.js",
+  "Poise.view.OutputsView": "../../app/view/Dynamic/OutputsView.js",
   "Poise.view.ReportEntryCard": "../../app/view/workstation/ReportEntryCard.js",
   "Poise.view.ReworkChartPanel": "../../app/view/charts/ReworkChartPanel.js",
   "Poise.view.ReworkView": "../../app/view/workstation/ReworkView.js",
   "Poise.view.SectionOutputChartPanel": "../../app/view/charts/SectionOutputChartPanel.js",
+  "Poise.view.WSDetailsPanel": "../../app/view/Dynamic/WSDetailsView.js",
   "Poise.view.WorkstationList": "../../app/view/workstation/WorkstationList.js"
 });
 
@@ -2401,6 +2405,21 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.fx.runner.Css": [],
   "Ext.fx.runner.CssAnimation": [],
   "Ext.fx.runner.CssTransition": [],
+  "Ext.grid.Grid": [],
+  "Ext.grid.HeaderContainer": [],
+  "Ext.grid.HeaderGroup": [],
+  "Ext.grid.Row": [],
+  "Ext.grid.column.Action": [
+    "Ext.grid.ActionColumn"
+  ],
+  "Ext.grid.column.Boolean": [],
+  "Ext.grid.column.CheckColumn": [
+    "Ext.ux.CheckColumn"
+  ],
+  "Ext.grid.column.Column": [],
+  "Ext.grid.column.Date": [],
+  "Ext.grid.column.Number": [],
+  "Ext.grid.column.Template": [],
   "Ext.layout.Abstract": [],
   "Ext.layout.Box": [],
   "Ext.layout.Card": [],
@@ -2552,6 +2571,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "OpenCharts.charts.ScatterChart": [],
   "OpenCharts.charts.StackedAreaChart": [],
   "OpenCharts.charts.StackedBarChart": [],
+  "Poise.controller.DynamicBalancing": [],
   "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
@@ -2569,6 +2589,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.Reworks": [],
   "Poise.store.Workstations": [],
   "Poise.util.Config": [],
+  "Poise.util.TableComponent": [],
   "Poise.view.AddDowntime": [],
   "Poise.view.AddOutput": [],
   "Poise.view.AddRework": [],
@@ -2586,14 +2607,18 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.LoginForm": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
+  "Poise.view.OperatorsView": [],
+  "Poise.view.OptionsView": [],
   "Poise.view.OutputChartPanel": [],
   "Poise.view.OutputTrendChartPanel": [],
   "Poise.view.OutputView": [],
+  "Poise.view.OutputsView": [],
   "Poise.view.ReportEntryCard": [],
   "Poise.view.ReportView": [],
   "Poise.view.ReworkChartPanel": [],
   "Poise.view.ReworkView": [],
   "Poise.view.SectionOutputChartPanel": [],
+  "Poise.view.WSDetailsPanel": [],
   "Poise.view.WorkstationList": []
 });
 
@@ -3146,6 +3171,39 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.fx.runner.Css": [],
   "Ext.fx.runner.CssAnimation": [],
   "Ext.fx.runner.CssTransition": [],
+  "Ext.grid.Grid": [
+    "widget.grid"
+  ],
+  "Ext.grid.HeaderContainer": [
+    "widget.headercontainer"
+  ],
+  "Ext.grid.HeaderGroup": [
+    "widget.gridheadergroup"
+  ],
+  "Ext.grid.Row": [
+    "widget.gridrow"
+  ],
+  "Ext.grid.column.Action": [
+    "widget.actioncolumn"
+  ],
+  "Ext.grid.column.Boolean": [
+    "widget.booleancolumn"
+  ],
+  "Ext.grid.column.CheckColumn": [
+    "widget.checkcolumn"
+  ],
+  "Ext.grid.column.Column": [
+    "widget.column"
+  ],
+  "Ext.grid.column.Date": [
+    "widget.datecolumn"
+  ],
+  "Ext.grid.column.Number": [
+    "widget.numbercolumn"
+  ],
+  "Ext.grid.column.Template": [
+    "widget.templatecolumn"
+  ],
   "Ext.layout.Abstract": [],
   "Ext.layout.Box": [
     "layout.tablebox"
@@ -3352,6 +3410,7 @@ Ext.ClassManager.addNameAliasMappings({
   "OpenCharts.charts.StackedBarChart": [
     "widget.oc-stackedbarchart"
   ],
+  "Poise.controller.DynamicBalancing": [],
   "Poise.controller.Reports": [],
   "Poise.controller.WorkstationController": [],
   "Poise.model.Downtime": [],
@@ -3389,6 +3448,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.util.Config": [
     "widget.appConfigUtil"
   ],
+  "Poise.util.TableComponent": [],
   "Poise.view.AddDowntime": [
     "widget.adddowntimeform"
   ],
@@ -3441,6 +3501,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.ObForm": [
     "widget.obform"
   ],
+  "Poise.view.OperatorsView": [],
+  "Poise.view.OptionsView": [],
   "Poise.view.OutputChartPanel": [
     "widget.output_chart_panel"
   ],
@@ -3450,6 +3512,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.OutputView": [
     "widget.outputview"
   ],
+  "Poise.view.OutputsView": [],
   "Poise.view.ReportEntryCard": [
     "widget.reportentrycard"
   ],
@@ -3464,6 +3527,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.SectionOutputChartPanel": [
     "widget.section_output_chart_panel"
+  ],
+  "Poise.view.WSDetailsPanel": [
+    "widget.ws_details_panel"
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"

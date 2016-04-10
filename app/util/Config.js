@@ -16,6 +16,21 @@ Ext.define('Poise.util.Config', {
         return new Date(theDate.getTime() + days*24*60*60*1000);
     },
 
+    parseDateString: function(dateString) {
+        date = Ext.Date.parse(dateString,"c");
+        date_utc = new Date(d.getTime() + (d.getTimezoneOffset() * 60000));
+        return Ext.Date.format(date_utc, "j M, Y h:i:s");
+    },
+
+    currentDate: function() {
+        return  [
+                    {
+                        id: (Ext.Date.format(Poise.util.Config.addDays(new Date(), 0), "Y-m-d")),
+                        label: (Ext.Date.format(Poise.util.Config.addDays(new Date(), 0), "j M, Y"))
+                    }
+                ];
+    },
+
     lastSevenDays: function() {
         return [
                     {

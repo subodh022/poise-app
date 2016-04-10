@@ -114,6 +114,14 @@
         {
             "path": "resources/css/nv.d3.min.css",
             "update": "delta"
+        },
+        {
+            "path": "resources/css/bootstrap-table.css",
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/font-awesome.min.css",
+            "update": "delta"
         }
     ],
 
