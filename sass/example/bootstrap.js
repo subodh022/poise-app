@@ -3502,7 +3502,9 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.obform"
   ],
   "Poise.view.OperatorsView": [],
-  "Poise.view.OptionsView": [],
+  "Poise.view.OptionsView": [
+    "widget.options_view"
+  ],
   "Poise.view.OutputChartPanel": [
     "widget.output_chart_panel"
   ],

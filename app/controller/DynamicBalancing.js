@@ -27,7 +27,8 @@ Ext.define('Poise.controller.DynamicBalancing', {
         refs: {
             listView: 'dynamic_workstation_list',
             dynamicRefreshButton: 'dynamicview button[action=refresh-dynamic-list]',            
-            dynamicBackButton: 'button#dynamicBack'
+            dynamicBackButton: 'button#dynamicBack',
+            optionsTable: 'options_view'
         },
 
         control: {
@@ -39,8 +40,30 @@ Ext.define('Poise.controller.DynamicBalancing', {
             },
             "dynamicBackButton": {
                 tap: 'goBackToDynamicView'
+            },
+            "optionsTable": {
+                tap: 'handleOptionsTable'
             }
         }
+    },
+
+    createDeviation: function(panel, old_ws_id, new_ws_id) {
+        var me = this;
+        Ext.Ajax.request({
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/create_deviation.json?old_ws_id=' + old_ws_id + '&new_ws_id=' + new_ws_id,
+            method: 'POST',
+            success: function(response){
+                Ext.Msg.alert("Deviation", "Deviation created for 60 minutes.");
+                var data = Ext.JSON.decode(response.responseText);
+                var dynamicView = Ext.ComponentQuery.query("#dynamicView")[0].pop();
+                var dynamicWsStore = Ext.getStore('DynamicWorkstations');
+                var obId = localStorage.getItem('obId');
+                dynamicWsStore.load({
+                    params: {'operation_bulletin_id': obId}
+                });
+                dynamicView.down("dynamic_workstation_list").setStore(dynamicWsStore);
+            }
+        });
     },
 
     refreshWorkstationList: function( button, e, eOpts) {
@@ -68,10 +91,9 @@ Ext.define('Poise.controller.DynamicBalancing', {
             url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/ws_details.json?work_station_id=' + ws_id,
             success: function(response){
                 var data = Ext.JSON.decode(response.responseText);
-                console.log(data);
                 me.addOperatorsToView(view, data);
                 me.addOutputsToView(view, data);
-                me.addOptionsToView(view, data);
+                me.addOptionsToView(view, data, ws_id);
             }
         });
     },
@@ -90,8 +112,8 @@ Ext.define('Poise.controller.DynamicBalancing', {
         view.down('#outputsTable').add(table);
     },
 
-    addOptionsToView: function(view, data) {
-        var table = Ext.create('Poise.view.OptionsView', {data: [{title: 'Available Options for Deviation', options: data.options}]});
+    addOptionsToView: function(view, data, ws_id) {
+        var table = Ext.create('Poise.view.OptionsView', {data: [{old_ws_id: ws_id, title: 'Available Options for Deviation', options: data.options}]});
         view.down('#optionsTable').add(table);
     }
 });
