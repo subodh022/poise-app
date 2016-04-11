@@ -16,11 +16,11 @@ Ext.define('Poise.view.DynamicWorkstationList', {
         emptyText: "No Workstation Added for Selected Operation Bulletin",
         grouped: true,
         itemTpl: [
-            '<div class="dynamic {status.state}-item">'+
+            '<div class="dynamic {state}-item">'+
                 '<div class="list-element"><span class="icon-custom">x</span> {operation_name}</div>'+
                 '<div class="list-element"><span class="icon-custom">/</span> {machine_name}</div>'+
                 '<div class="list-element"><span class="icon-custom">U</span> {operator_name}</div>'+
-                '<div class="list-element list-message"><span class="icon-custom">i</span> {status.message}</div>'+
+                '<div class="list-element list-message"><span class="icon-custom">i</span> {message}</div>'+
              '</div>'
         ]
     }

@@ -45,7 +45,7 @@ Ext.define('Poise.view.OptionsView', {
                         '</tr>',
                     '</tpl>',
                     '<tpl if="options.length == 0">',
-                        '<tr><td colspan="2"><i>No Options Available</i></td></tr>',
+                        '<tr><td colspan="5"><i>No Options Available</i></td></tr>',
                     '</tpl>',
                 '</table>',
             '</tpl>'

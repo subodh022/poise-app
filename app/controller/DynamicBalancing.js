@@ -59,9 +59,11 @@ Ext.define('Poise.controller.DynamicBalancing', {
                 var dynamicWsStore = Ext.getStore('DynamicWorkstations');
                 var obId = localStorage.getItem('obId');
                 dynamicWsStore.load({
-                    params: {'operation_bulletin_id': obId}
-                });
-                dynamicView.down("dynamic_workstation_list").setStore(dynamicWsStore);
+                    params: {'operation_bulletin_id': obId},
+                    callback: function() {
+                        dynamicView.down("dynamic_workstation_list").setStore(dynamicWsStore);
+                    }
+                });                
             }
         });
     },
@@ -82,8 +84,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
     showWSDetails: function(target, record) {
         var view = Ext.create('Poise.view.WSDetailsPanel');        
         target.up('#dynamicView').push(view);
-        console.log(record);
-        this.loadData(record.id, view, record.status.state);
+        this.loadData(record.id, view, record.state);
     },
     
     loadData: function(ws_id, view, state) {
