@@ -19,7 +19,7 @@ Ext.define('Poise.view.OutputsView', {
                         '</tr>',
                     '</tpl>',
                     '<tpl if="outputs.length == 0">',
-                        '<tr><td colspan="2"><i>No Operators Found</i></td></tr>',
+                        '<tr><td colspan="2"><i>No Outputs Found</i></td></tr>',
                     '</tpl>',
                 '</table>',
             '</tpl>'

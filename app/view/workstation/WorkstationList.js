@@ -17,9 +17,9 @@ Ext.define('Poise.view.WorkstationList', {
         cls: 'dynamic-list white-bg',
         itemTpl: [
             '<div class="dynamic">'+
-                '<div class="list-element"><span class="icon-custom">x</span> {operation_name}</div>'+
-                '<div class="list-element"><span class="icon-custom">/</span> {machine_name}</div>'+
-                '<div class="list-element"><span class="icon-custom">U</span> {operator_name}</div>'+
+                '<div class="log-list-element"><span class="icon-custom">x</span> {operation_name}</div>'+
+                '<div class="log-list-element"><span class="icon-custom">/</span> {machine_name}</div>'+
+                '<div class="log-list-element"><span class="icon-custom">U</span> {operator_name}</div>'+
              '</div>'
         ],
 

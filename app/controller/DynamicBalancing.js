@@ -82,10 +82,11 @@ Ext.define('Poise.controller.DynamicBalancing', {
     showWSDetails: function(target, record) {
         var view = Ext.create('Poise.view.WSDetailsPanel');        
         target.up('#dynamicView').push(view);
-        this.loadData(record.id, view);
+        console.log(record);
+        this.loadData(record.id, view, record.status.state);
     },
     
-    loadData: function(ws_id, view) {
+    loadData: function(ws_id, view, state) {
         var me = this;
         Ext.Ajax.request({
             url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/ws_details.json?work_station_id=' + ws_id,
@@ -93,7 +94,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
                 var data = Ext.JSON.decode(response.responseText);
                 me.addOperatorsToView(view, data);
                 me.addOutputsToView(view, data);
-                me.addOptionsToView(view, data, ws_id);
+                me.addOptionsToView(view, data, ws_id, state);
             }
         });
     },
@@ -112,8 +113,8 @@ Ext.define('Poise.controller.DynamicBalancing', {
         view.down('#outputsTable').add(table);
     },
 
-    addOptionsToView: function(view, data, ws_id) {
-        var table = Ext.create('Poise.view.OptionsView', {data: [{old_ws_id: ws_id, title: 'Available Options for Deviation', options: data.options}]});
+    addOptionsToView: function(view, data, ws_id, state) {
+        var table = Ext.create('Poise.view.OptionsView', {data: [{old_ws_id: ws_id, state: state, title: 'Available Options for Deviation', options: data.options}]});
         view.down('#optionsTable').add(table);
     }
 });

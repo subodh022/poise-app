@@ -123,12 +123,15 @@ Ext.define('Poise.view.ObForm', {
             params: {'operation_bulletin_id': obId}
         });
         dynamicWsStore.load({
-            params: {'operation_bulletin_id': obId}
+            params: {'operation_bulletin_id': obId},
+            callback: function() {
+                formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
+            }
         });
         formCmp.up("home").down("downtimeview").down("workstationlist").setStore(wsStore);
         formCmp.up("home").down("reworkview").down("workstationlist").setStore(wsStore);
         formCmp.up("home").down("outputview").down("workstationlist").setStore(wsStore);
-        formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
+        // formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
 
         this.loadReports();
     },

@@ -3,11 +3,11 @@ Ext.define('Poise.store.DynamicWorkstations', {
     alias: 'store.dynamic_workstations',
 
     requires: [
-        'Poise.model.Workstation'
+        'Poise.model.DynamicWorkstation'
     ],
 
     config: {
-        model: 'Poise.model.Workstation',
+        model: 'Poise.model.DynamicWorkstation',
         storeId: 'DynamicWorkstations',
         grouper: {
             groupFn: function(record) {

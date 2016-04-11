@@ -77,10 +77,12 @@ Ext.define('Poise.controller.Reports', {
         switch(xtype) {
             case 'downtime_chart_panel':
                 var chart = this.getDowntimeChart();
+                date_today = chart.up("#downtimeChart").down("#reportDate").getValue();
                 this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'rework_chart_panel':
                 var chart = this.getReworkChart();
+                date_today = chart.up("#reworkChart").down("#reportDate").getValue();
                 this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
                 break;
             case 'output_chart_panel':

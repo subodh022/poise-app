@@ -76,7 +76,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('Poise.view.Home'));
+        Ext.Viewport.add(Ext.create('Poise.view.Main'));
     },
 
     onUpdated: function() {
