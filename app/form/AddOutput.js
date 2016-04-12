@@ -14,6 +14,7 @@ Ext.define('Poise.view.AddOutput', {
         margin: '10',
         scrollable: true,
         height: '100%',
+        cls: 'log-form',
 
         items: [
             {
@@ -24,6 +25,7 @@ Ext.define('Poise.view.AddOutput', {
                 xtype: 'fieldset',
                 title: "Add Output",
                 margin: '10',
+                cls: 'loggedAt',
                 items: [
                     {
                         xtype: 'textfield',

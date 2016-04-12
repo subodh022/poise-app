@@ -14,6 +14,7 @@ Ext.define('Poise.view.AddDowntime', {
         margin: '10',
         scrollable: true,
         height: '100%',
+        cls: 'log-form',
 
         items: [
             {
@@ -24,6 +25,7 @@ Ext.define('Poise.view.AddDowntime', {
                 xtype: 'fieldset',
                 title: "Add Downtime",
                 margin: '10',
+                cls: 'loggedAt',
                 items: [
                     {
                         xtype: 'textfield',
