@@ -1885,6 +1885,7 @@ Ext.Loader.addClassPathMappings({
   "Poise.model.DynamicWorkstation": "../../app/model/DynamicWorkstationModel.js",
   "Poise.model.Output": "../../app/model/OutputModel.js",
   "Poise.model.Rework": "../../app/model/ReworkModel.js",
+  "Poise.model.Section": "../../app/model/SectionModel.js",
   "Poise.model.Workstation": "../../app/model/WorkstationModel.js",
   "Poise.store.Downtimes": "../../app/store/Downtime.js",
   "Poise.store.Outputs": "../../app/store/Output.js",
@@ -2578,6 +2579,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.model.DynamicWorkstation": [],
   "Poise.model.Output": [],
   "Poise.model.Rework": [],
+  "Poise.model.Section": [],
   "Poise.model.Workstation": [],
   "Poise.store.ChartData": [],
   "Poise.store.Downtimes": [],
@@ -2587,6 +2589,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.Outputs": [],
   "Poise.store.ReportTimeData": [],
   "Poise.store.Reworks": [],
+  "Poise.store.Sections": [],
   "Poise.store.Workstations": [],
   "Poise.util.Config": [],
   "Poise.util.TableComponent": [],
@@ -3417,6 +3420,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.model.DynamicWorkstation": [],
   "Poise.model.Output": [],
   "Poise.model.Rework": [],
+  "Poise.model.Section": [],
   "Poise.model.Workstation": [],
   "Poise.store.ChartData": [
     "store.chartdata"
@@ -3441,6 +3445,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.store.Reworks": [
     "store.reworks"
+  ],
+  "Poise.store.Sections": [
+    "store.sections"
   ],
   "Poise.store.Workstations": [
     "store.workstations"

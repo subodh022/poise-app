@@ -90,13 +90,15 @@
 }
 
 .filters .x-field-input {
-	width: 150px;
-	padding-top: 0.15em;
+	margin-left: 1em;
+    padding-top: 0.2em;
+    width: auto;
 }
 
 .filters .x-form-label {
 	width: auto !important;
 	background-color: inherit;
+	padding-top: 0.65em;
 }
 
 .x-list-item .dynamic {
@@ -114,7 +116,7 @@
 }
 
 .x-list-item .red-item {
-	background-color: #ff9980;
+	background-color: #ff8080;
 }
 
 .x-list-item .green-item {
@@ -122,11 +124,15 @@
 }
 
 .x-list-item .yellow-item {
-	background-color: #ffe066;
+	background-color: #ffe680;
 }
 
 .x-list-item .orange-item {
 	background-color: #ffbf80;
+}
+
+.x-list-item .blue-item {
+	background-color: #4dd2ff;
 }
 
 .x-option-item .red-item {
@@ -224,4 +230,16 @@ i.fa {
 
 .loggedAt .x-item-disabled .x-form-label {
     color: #080808;
+}
+
+.x-list-normal .x-list-header {
+    background-color: #666;
+    background-image: -moz-linear-gradient(center top , #bbb, #999 3%, #777);
+    border-bottom: 1px solid #555;
+    border-top: 1px solid #bbb;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.2em 1.02em;
+    text-shadow: 0 0.08em 0 rgba(255, 255, 255, 0.25);
 }

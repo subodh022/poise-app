@@ -16,6 +16,9 @@ Ext.define('Poise.controller.Reports', {
             downtimeRefresh: 'button[action=refresh-downtime-chart]',
             reworkRefresh: 'button[action=refresh-rework-chart]',
             outputRefresh: 'button[action=refresh-output-chart]',
+            downtimeSection: 'panel[name=downtime_container] #reportSection',
+            reworkSection: 'panel[name=rework_container] #reportSection',
+            outputSection: 'panel[name=output_container] #reportSection',
             sectionOutputRefresh: 'button[action=refresh-section-output-chart]',
             attendanceRefresh: 'button[action=refresh-attendance-chart]'
         },
@@ -31,6 +34,18 @@ Ext.define('Poise.controller.Reports', {
             
             outputRefresh: {
                 tap: 'refreshOutputChart'
+            }, 
+
+            downtimeSection: {
+                change: 'refreshDowntimeChart'
+            },
+            
+            reworkSection: {
+                change: 'refreshReworkChart'
+            },
+            
+            outputSection: {
+                change: 'refreshOutputChart'
             },
             
             sectionOutputRefresh: {
@@ -78,17 +93,20 @@ Ext.define('Poise.controller.Reports', {
             case 'downtime_chart_panel':
                 var chart = this.getDowntimeChart();
                 date_today = chart.up("#downtimeChart").down("#reportDate").getValue();
-                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                section = chart.up("#downtimeChart").down("#reportSection").getValue();
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/downtime.json?ob_id='+ob_id+'&report_date='+date_today+'&report_section='+section, chart);
                 break;
             case 'rework_chart_panel':
                 var chart = this.getReworkChart();
                 date_today = chart.up("#reworkChart").down("#reportDate").getValue();
-                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                section = chart.up("#reworkChart").down("#reportSection").getValue();
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/rework.json?ob_id='+ob_id+'&report_date='+date_today+'&report_section='+section, chart);
                 break;
             case 'output_chart_panel':
                 var chart = this.getOutputChart();
                 date_today = chart.up("#outputChart").down("#reportDate").getValue();
-                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today, chart);
+                section = chart.up("#outputChart").down("#reportSection").getValue();
+                this.loadChartData(Poise.util.Config.getApiBaseUrl() + 'api/v1/reports/output.json?ob_id='+ob_id+'&report_date='+date_today+'&report_section='+section, chart);
                 break;
             case 'section_output_chart_panel':
                 var chart = this.getSectionOutputChart();

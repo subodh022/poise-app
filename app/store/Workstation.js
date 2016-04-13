@@ -11,7 +11,7 @@ Ext.define('Poise.store.Workstations', {
         storeId: 'Workstations',
         grouper: {
             groupFn: function(record) {
-                return record.get('section_name');
+                return 'Section: ' + record.get('section_name');
             },
             sortProperty: 'section_id'
         },

@@ -67,21 +67,33 @@ Ext.define('Poise.view.ReportView', {
                                 xtype: 'panel',
                                 layout: 'hbox',
                                 flex: 2,
+                                align: 'center',
                                 items: [
                                     {
                                         xtype: 'selectfield',
                                         itemId: 'reportDate',
-                                        label: 'Report Date : ',
-                                        labelWidth: '10%',
+                                        label: 'Date : ',
+                                        labelWidth: 'auto',
                                         displayField: 'label',
                                         valueField: 'id',
                                         ui: 'normal',
                                         cls: 'filters',
-                                        flex: 1,
+                                        align: 'center',
                                         store: {
                                             fields: ['id', 'label'],
                                             data: Poise.util.Config.lastSevenDays()
                                         }
+                                    },
+                                    {
+                                        xtype: 'selectfield',
+                                        itemId: 'reportSection',
+                                        displayField: 'name',
+                                        label: 'Section : ',
+                                        labelWidth: 'auto',
+                                        valueField: 'id',
+                                        ui: 'normal',
+                                        cls: 'filters',
+                                        align: 'center'
                                     }
                                 ]                                
                             },
@@ -124,7 +136,7 @@ Ext.define('Poise.view.ReportView', {
                             {
                                 html: '<div class="chart-title">Cumulative Output - Sections</div>',
                                 style: 'text-align: left; font-weight: bold; padding-top: 0.5em;',
-                                flex: 2
+                                flex: 1
                             },
                             {
                                 xtype: 'panel',
@@ -134,8 +146,8 @@ Ext.define('Poise.view.ReportView', {
                                     {
                                         xtype: 'selectfield',
                                         itemId: 'reportDate',
-                                        label: 'Report Date : ',
-                                        labelWidth: '10%',
+                                        label: 'Date : ',
+                                        labelWidth: 'auto',
                                         displayField: 'label',
                                         valueField: 'id',
                                         ui: 'normal',
@@ -187,7 +199,41 @@ Ext.define('Poise.view.ReportView', {
                             {
                                 html: '<div class="chart-title">Cumulative Downtime - Work Stations</div>',
                                 style: 'text-align: left; font-weight: bold; padding-top: 0.5em;',
-                                flex: 2
+                                flex: 1
+                            },
+                            {
+                                xtype: 'panel',
+                                layout: 'hbox',
+                                flex: 2,
+                                align: 'center',
+                                items: [
+                                    {
+                                        xtype: 'selectfield',
+                                        itemId: 'reportDate',
+                                        label: 'Date : ',
+                                        labelWidth: 'auto',
+                                        displayField: 'label',
+                                        valueField: 'id',
+                                        ui: 'normal',
+                                        cls: 'filters',
+                                        align: 'center',
+                                        store: {
+                                            fields: ['id', 'label'],
+                                            data: Poise.util.Config.lastSevenDays()
+                                        }
+                                    },
+                                    {
+                                        xtype: 'selectfield',
+                                        itemId: 'reportSection',
+                                        displayField: 'name',
+                                        label: 'Section : ',
+                                        labelWidth: 'auto',
+                                        valueField: 'id',
+                                        ui: 'normal',
+                                        cls: 'filters',
+                                        align: 'center'
+                                    }
+                                ]                                
                             },
                             {
                                 xtype: 'button',
@@ -196,24 +242,8 @@ Ext.define('Poise.view.ReportView', {
                                 ui: 'confirm',
                                 width: 'auto',
                                 height: '2.5em',
-                                align: 'center',
+                                align: 'right',
                                 action: 'refresh-downtime-chart'
-                            },
-                            {
-                                xtype: 'selectfield',
-                                itemId: 'reportDate',
-                                displayField: 'label',
-                                valueField: 'id',
-                                ui: 'normal',
-                                cls: 'right-aligned',
-                                flex: 2,
-                                store: {
-                                    fields: ['id', 'label'],
-                                    data: Poise.util.Config.lastSevenDays()
-                                },
-                                style: {
-                                    'padding-top': '0.25em'
-                                }
                             }
                         ]
                     },
@@ -244,7 +274,41 @@ Ext.define('Poise.view.ReportView', {
                             {
                                 html: '<div class="chart-title">Cumulative Reworks - Work Stations</div>',
                                 style: 'text-align: left; font-weight: bold; padding-top: 0.5em;',
-                                flex: 2
+                                flex: 1
+                            },
+                            {
+                                xtype: 'panel',
+                                layout: 'hbox',
+                                flex: 2,
+                                align: 'center',
+                                items: [
+                                    {
+                                        xtype: 'selectfield',
+                                        itemId: 'reportDate',
+                                        label: 'Date : ',
+                                        labelWidth: 'auto',
+                                        displayField: 'label',
+                                        valueField: 'id',
+                                        ui: 'normal',
+                                        cls: 'filters',
+                                        align: 'center',
+                                        store: {
+                                            fields: ['id', 'label'],
+                                            data: Poise.util.Config.lastSevenDays()
+                                        }
+                                    },
+                                    {
+                                        xtype: 'selectfield',
+                                        itemId: 'reportSection',
+                                        displayField: 'name',
+                                        label: 'Section : ',
+                                        labelWidth: 'auto',
+                                        valueField: 'id',
+                                        ui: 'normal',
+                                        cls: 'filters',
+                                        align: 'center'
+                                    }
+                                ]                                
                             },
                             {
                                 xtype: 'button',
@@ -253,24 +317,8 @@ Ext.define('Poise.view.ReportView', {
                                 ui: 'confirm',
                                 width: 'auto',
                                 height: '2.5em',
-                                align: 'center',
+                                align: 'right',
                                 action: 'refresh-rework-chart'
-                            },
-                            {
-                                xtype: 'selectfield',
-                                itemId: 'reportDate',
-                                displayField: 'label',
-                                valueField: 'id',
-                                ui: 'normal',
-                                cls: 'right-aligned',
-                                flex: 2,
-                                store: {
-                                    fields: ['id', 'label'],
-                                    data: Poise.util.Config.lastSevenDays()
-                                },
-                                style: {
-                                    'padding-top': '0.25em'
-                                }
                             }
                         ]
                     },
@@ -310,13 +358,8 @@ Ext.define('Poise.view.ReportView', {
                                 ui: 'confirm',
                                 width: 'auto',
                                 height: '2.5em',
-                                align: 'center',
+                                align: 'right',
                                 action: 'refresh-attendance-chart'
-                            },
-                            {
-                                html: '<div class="chart-title"></div>',
-                                style: 'text-align: left; margin-bottom: 1em; font-weight: bold;',
-                                flex: 2
                             }
                         ]
                     },

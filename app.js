@@ -38,6 +38,7 @@ Ext.application({
         'Workstations',
         'DynamicWorkstations',
         'Lines',
+        'Sections',
         'ObStore',
         'ChartData'
     ],
