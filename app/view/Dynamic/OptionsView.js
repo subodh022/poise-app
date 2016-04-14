@@ -55,8 +55,8 @@ Ext.define('Poise.view.OptionsView', {
                                 '<tpl for="operator">',
                                     '<div style="margin: 0.3em 0.2em;">',
                                         '<div class="duration"><input type="text" value="1" placeholder="HH" /></div>',
-                                        '<div data-operator="{id}" data-old-ws="{[parent.parent.old_ws_id]}" data-state="{[parent.parent.state]}" data-new-ws="{parent.ws_id}" class="x-button x-iconalign-left x-button-action x-layout-box-item x-stretched">',
-                                            '<span class="x-button-label {[parent.parent.state]}">Assign</span>',
+                                        '<div data-operator="{id}" data-old-ws="{[parent.parent.old_ws_id || parent.parent.parent.old_ws_id]}" data-state="{[parent.parent.state || parent.parent.parent.state]}" data-new-ws="{parent.ws_id}" class="x-button x-iconalign-left x-button-action x-layout-box-item x-stretched">',
+                                            '<span class="x-button-label {[parent.parent.state || parent.parent.parent.state]}">Assign</span>',
                                         '</div>',
                                     '</div>',
                                 '</tpl>',
@@ -83,6 +83,9 @@ Ext.define('Poise.view.OptionsView', {
                     var new_ws_id = el.getAttribute('data-new-ws');
                     var operator_id = el.getAttribute('data-operator');
                     var state = el.getAttribute('data-state');
+                    if(operator == "") {
+                        Ext.Msg.alert("Deviation", "No operator found for this deviation. Please assign someone else.");
+                    }
                     if(state != "yellow") {
                         if(hours != "" && me.isInt(hours) && parseInt(hours) <= 8 && parseInt(hours) > 0) {
                             dyanmicController.createDeviation(node, old_ws_id, new_ws_id, operator_id, hours);
