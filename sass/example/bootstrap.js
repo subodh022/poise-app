@@ -1918,7 +1918,8 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.ReworkView": "../../app/view/workstation/ReworkView.js",
   "Poise.view.SectionOutputChartPanel": "../../app/view/charts/SectionOutputChartPanel.js",
   "Poise.view.WSDetailsPanel": "../../app/view/Dynamic/WSDetailsView.js",
-  "Poise.view.WorkstationList": "../../app/view/workstation/WorkstationList.js"
+  "Poise.view.WorkstationList": "../../app/view/workstation/WorkstationList.js",
+  "Poise.view.WorkstationView": "../../app/view/Dynamic/WorkstationView.js"
 });
 
 Ext.ClassManager.addNameAlternateMappings({
@@ -2622,7 +2623,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.ReworkView": [],
   "Poise.view.SectionOutputChartPanel": [],
   "Poise.view.WSDetailsPanel": [],
-  "Poise.view.WorkstationList": []
+  "Poise.view.WorkstationList": [],
+  "Poise.view.WorkstationView": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -3542,7 +3544,8 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.WorkstationList": [
     "widget.workstationlist"
-  ]
+  ],
+  "Poise.view.WorkstationView": []
 });
 
 

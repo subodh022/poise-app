@@ -129,7 +129,8 @@
 }
 
 .x-list-item .yellow-item {
-	background-color: #ffe680;
+    background-color: #ffe066;
+    color: #444 !important;
 }
 
 .x-list-item .orange-item {
@@ -140,11 +141,11 @@
 	background-color: #4dd2ff;
 }
 
-.x-option-item .red-item {
+span.red-item {
 	color: #e60000;
 }
 
-.x-option-item .green-item {
+span.green-item {
 	color: #006600;
 }
 
@@ -185,7 +186,7 @@ i.fa {
 }
 
 .table i {
-	color: #aaa;
+	color: #999;
 }
 
 .boxed {
@@ -253,4 +254,20 @@ i.fa {
     background-color: #eee !important;
     border: medium none !important;
     color: #333 !important;
+}
+
+.x-html thead th {
+    background: #dfdfdf none repeat scroll 0 0;
+}
+
+.duration {
+    float: left;
+    margin-right: 5px;
+    width: 20%;
+}
+
+.duration input {
+	width: 100%;
+	height: 2em;
+	text-align: center;
 }

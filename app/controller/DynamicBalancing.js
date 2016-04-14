@@ -13,7 +13,8 @@ Ext.define('Poise.controller.DynamicBalancing', {
             "WSDetailsPanel",
             "OperatorsView",
             "OutputsView",
-            "OptionsView"
+            "OptionsView",
+            "WorkstationView"
         ],
 
         models: [
@@ -47,13 +48,13 @@ Ext.define('Poise.controller.DynamicBalancing', {
         }
     },
 
-    createDeviation: function(panel, old_ws_id, new_ws_id) {
+    createDeviation: function(panel, old_ws_id, new_ws_id, operator_id, hours) {
         var me = this;
         Ext.Ajax.request({
-            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/create_deviation.json?old_ws_id=' + old_ws_id + '&new_ws_id=' + new_ws_id,
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/create_deviation.json?old_ws_id=' + old_ws_id + '&new_ws_id=' + new_ws_id + '&operator_id=' + operator_id + '&hours=' + hours,
             method: 'POST',
             success: function(response){
-                Ext.Msg.alert("Deviation", "Deviation created for 60 minutes.");
+                Ext.Msg.alert("Deviation", "Deviation created for " + hours + " hours.");
                 var data = Ext.JSON.decode(response.responseText);
                 var dynamicView = Ext.ComponentQuery.query("#dynamicView")[0].pop();
                 var dynamicWsStore = Ext.getStore('DynamicWorkstations');
@@ -84,6 +85,8 @@ Ext.define('Poise.controller.DynamicBalancing', {
     showWSDetails: function(target, record) {
         var view = Ext.create('Poise.view.WSDetailsPanel');        
         target.up('#dynamicView').push(view);
+        console.log([record]);
+        this.addWSDetailsToView(view, [record]);
         this.loadData(record.id, view, record.state);
     },
     
@@ -104,13 +107,19 @@ Ext.define('Poise.controller.DynamicBalancing', {
         button.up("#dynamicView").pop();
     },
 
+    addWSDetailsToView: function(view, data) {
+        var table = Ext.create('Poise.view.WorkstationView', {data: [{title: 'Workstation Details', workstation: data}]});
+        view.down('#wsTable').add(table);
+    },
+
     addOperatorsToView: function(view, data) {
+        console.log(data.operators);
         var table = Ext.create('Poise.view.OperatorsView', {data: [{title: 'Operator(s)', operators: data.operators}]});
         view.down('#operatorsTable').add(table);
     },
 
     addOutputsToView: function(view, data) {
-        var table = Ext.create('Poise.view.OutputsView', {data: [{title: 'Recent Outputs', outputs: data.outputs}]});
+        var table = Ext.create('Poise.view.OutputsView', {data: [{title: 'Recent Output (Last 8 hours)', outputs: data.outputs}]});
         view.down('#outputsTable').add(table);
     },
 

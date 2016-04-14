@@ -17,6 +17,11 @@ Ext.define('Poise.view.WSDetailsPanel', {
             {
                 xtype: 'panel',
                 layout: 'fit',
+                itemId: 'wsTable'
+            },
+            {
+                xtype: 'panel',
+                layout: 'fit',
                 itemId: 'operatorsTable'
             },
             {
@@ -29,40 +34,11 @@ Ext.define('Poise.view.WSDetailsPanel', {
                 layout: 'fit',
                 itemId: 'optionsTable'
             },
-            // {
-            //     xtype: 'panel',
-            //     layout: 'fit',
-            //     itemId: 'optionsField',
-            //     cls: 'box-form',
-            //     items: [
-            //         {
-            //             xtype: 'selectfield',
-            //             label: 'Choose Operator to Deviate',
-            //             itemId: '#deviateWS',
-            //             labelWrap: true,
-            //             displayField: 'title',
-            //             valueField: 'id'
-            //         }
-            //     ]
-            // },
             {
                 xtype: 'panel',
                 layout: 'hbox',
                 margin: '10',
                 items: [
-                    // {
-                    //     xtype: 'button',
-                    //     action: 'downtime-save',
-                    //     ui: 'confirm',
-                    //     iconCls: 'add',
-                    //     text: 'Add',
-                    //     width: 'auto',
-                    //     align: 'left'
-                    // },
-                    // {
-                    //     xtype: 'spacer',
-                    //     width: '0.5em'
-                    // },
                     {
                         xtype: 'button',
                         action: 'back',
