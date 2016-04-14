@@ -243,3 +243,9 @@ i.fa {
     padding: 0.2em 1.02em;
     text-shadow: 0 0.08em 0 rgba(255, 255, 255, 0.25);
 }
+
+.attendance-view .x-item-selected {
+    background-color: #eee !important;
+    border: medium none !important;
+    color: #333 !important;
+}

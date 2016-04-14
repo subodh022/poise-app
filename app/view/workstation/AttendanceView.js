@@ -11,6 +11,7 @@ Ext.define('Poise.view.AttendanceView', {
         layout: 'card',
         navigationBar: false,
         itemId: 'attendanceView',
+        cls: 'attendance-view',
 
         items: [            
             {
