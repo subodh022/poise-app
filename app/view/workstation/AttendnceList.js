@@ -1,5 +1,5 @@
 Ext.define('Poise.view.AttendanceList', {
-    extend: 'Ext.DataView',
+    extend: 'Ext.dataview.List',
     alias: 'widget.attendancelist',
     xtype: 'attendancelist',
 
@@ -9,6 +9,7 @@ Ext.define('Poise.view.AttendanceList', {
         },
         width: '100%',
         height: '100%',
+        layout: 'fit',
         flex: 1,
         useComponents: true,
         title: 'Workstations',
@@ -16,6 +17,6 @@ Ext.define('Poise.view.AttendanceList', {
         grouped: true,
         defaultType: 'attendancelistitem',
         scrollable: true,
-        cls: 'white-bg'
+        cls: 'dynamic-list white-bg'
     }
 });

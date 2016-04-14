@@ -106,6 +106,11 @@
     padding: 10px;
 }
 
+.x-item-selected .dynamic {
+	color: #fff !important;
+    padding: 10px;
+}
+
 .dynamic-list .x-innerhtml {
 	padding: 0 !important;
 }
@@ -159,7 +164,7 @@
 .log-list-element {
 	width: 32%;
 	display: inline-block;
-	border-left: 1px solid #777; 
+	border-left: 1px solid #aaa; 
 	padding: 0 5px;
 }
 
@@ -238,7 +243,7 @@ i.fa {
     border-bottom: 1px solid #555;
     border-top: 1px solid #bbb;
     color: #fff;
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-weight: bold;
     padding: 0.2em 1.02em;
     text-shadow: 0 0.08em 0 rgba(255, 255, 255, 0.25);

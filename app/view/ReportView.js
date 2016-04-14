@@ -347,7 +347,7 @@ Ext.define('Poise.view.ReportView', {
                         cls: 'chart-header',
                         items: [
                             {
-                                html: '<div class="chart-title">Attendance Trend - Past Week</div>',
+                                html: '<div class="chart-title">Attendance Trend - Past Month</div>',
                                 style: 'text-align: left; font-weight: bold; padding-top: 0.5em;',
                                 flex: 2
                             },

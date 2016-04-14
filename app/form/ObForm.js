@@ -123,7 +123,13 @@ Ext.define('Poise.view.ObForm', {
         var obId = localStorage.getItem('obId');
         var lineId = localStorage.getItem('lineId');
         wsStore.load({
-            params: {'operation_bulletin_id': obId}
+            params: {'operation_bulletin_id': obId},
+            callback: function() {
+                formCmp.up("home").down("downtimeview").down("workstationlist").setStore(wsStore);
+                formCmp.up("home").down("reworkview").down("workstationlist").setStore(wsStore);
+                formCmp.up("home").down("outputview").down("workstationlist").setStore(wsStore);
+                formCmp.up("home").down("attendanceview").down("attendancelist").setStore(wsStore);
+            }
         });
         dynamicWsStore.load({
             params: {'operation_bulletin_id': obId},
@@ -139,11 +145,6 @@ Ext.define('Poise.view.ObForm', {
                 formCmp.up("home").down("#reworkChart").down("#reportSection").setStore(sectionStore);
             }
         });
-        formCmp.up("home").down("downtimeview").down("workstationlist").setStore(wsStore);
-        formCmp.up("home").down("reworkview").down("workstationlist").setStore(wsStore);
-        formCmp.up("home").down("outputview").down("workstationlist").setStore(wsStore);
-        // formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
-
         this.loadReports();
     },
 
