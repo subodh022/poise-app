@@ -51,7 +51,14 @@ Ext.define('Poise.view.AttendanceListItem', {
     },
 
     updateRecord: function(record) {
+        if(record == null || record.get('operators_attendance') === undefined) {
+            return;
+        }
         var me = this;
+        var togglePanel = me.down('#togglePanel');
+        if(togglePanel.getInnerItems().length > 0) {
+            return;
+        }
         var operators_names = record.get('operator_name').split(', ').map(function(op){
             return "<div style='margin: 1em 0'><span class='icon-custom'>U</span> "+op+"</div>";
         }).join('');
@@ -59,16 +66,11 @@ Ext.define('Poise.view.AttendanceListItem', {
         me.down('#machineCmp').setHtml('<span class="icon-custom">/</span>' + record.get('machine_name'));
         me.down('#operatorCmp').setHtml(operators_names);
         me.down('#workStationId').setValue(record.get('id'));
-        var togglePanel = me.down('#togglePanel');
         me.addToggleFields(record.get('operators_attendance'), record.get('attendance_today'), togglePanel);
         me.callParent(arguments);
     },
 
     addToggleFields: function(operators, attendance_today, togglePanel) {
-        if(togglePanel.getInnerItems().length > 0) {
-            return;
-        }
-
         var me = this;
         if(operators.length > 0){
             Ext.each(operators, function(op){

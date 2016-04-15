@@ -111,13 +111,23 @@
     padding: 10px;
 }
 
+.x-item-selected .dynamic-item {
+	color: #fff !important;
+    padding: 10px;
+    background-color: #999 !important;
+}
+
+.x-item-selected .list-message {
+	color: inherit;
+}
+
 .dynamic-list .x-innerhtml {
 	padding: 0 !important;
 }
 
 .x-item-selected {
     color: #fff !important;
-    border: none !important;
+    border-top: 1px solid #ddd !important;
 }
 
 .x-list-item .red-item {

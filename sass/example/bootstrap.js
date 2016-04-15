@@ -1889,7 +1889,6 @@ Ext.Loader.addClassPathMappings({
   "Poise.model.Workstation": "../../app/model/WorkstationModel.js",
   "Poise.store.Downtimes": "../../app/store/Downtime.js",
   "Poise.store.Outputs": "../../app/store/Output.js",
-  "Poise.store.ReportTimeData": "../../app/store/ReportTime.js",
   "Poise.store.Reworks": "../../app/store/Rework.js",
   "Poise.store.Workstations": "../../app/store/Workstation.js",
   "Poise.view.AddDowntime": "../../app/form/AddDowntime.js",
@@ -2588,7 +2587,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.store.Lines": [],
   "Poise.store.ObStore": [],
   "Poise.store.Outputs": [],
-  "Poise.store.ReportTimeData": [],
+  "Poise.store.ReportTime": [],
   "Poise.store.Reworks": [],
   "Poise.store.Sections": [],
   "Poise.store.Workstations": [],
@@ -3442,7 +3441,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.store.Outputs": [
     "store.outputs"
   ],
-  "Poise.store.ReportTimeData": [
+  "Poise.store.ReportTime": [
     "store.reporttimedata"
   ],
   "Poise.store.Reworks": [

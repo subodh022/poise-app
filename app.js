@@ -40,7 +40,8 @@ Ext.application({
         'Lines',
         'Sections',
         'ObStore',
-        'ChartData'
+        'ChartData',
+        'ReportTime'
     ],
 
     controllers: [

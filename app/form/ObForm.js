@@ -7,6 +7,7 @@ Ext.define('Poise.view.ObForm', {
         'Ext.form.FieldSet',
         'Ext.field.Select',
         'Poise.store.Lines',
+        'Poise.store.ReportTime',
         'Poise.store.Sections',
         'Poise.store.ObStore',
         'Poise.store.Workstations',
@@ -113,13 +114,19 @@ Ext.define('Poise.view.ObForm', {
 
     setOperationBulletin: function(selectfield, newValue, oldValue, options) {
         localStorage.setItem('obId', newValue);
+        
         this.setLineAndOb(selectfield);
     },
 
     setLineAndOb: function(formCmp, e, eOpts) {
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading data...'
+        });
         var wsStore = Ext.getStore('Workstations');
         var dynamicWsStore = Ext.getStore('DynamicWorkstations');
         var sectionStore = Ext.getStore('Sections');
+        // var workingHoursStore = Ext.getStore('ReportTime');
         var obId = localStorage.getItem('obId');
         var lineId = localStorage.getItem('lineId');
         wsStore.load({
@@ -128,13 +135,13 @@ Ext.define('Poise.view.ObForm', {
                 formCmp.up("home").down("downtimeview").down("workstationlist").setStore(wsStore);
                 formCmp.up("home").down("reworkview").down("workstationlist").setStore(wsStore);
                 formCmp.up("home").down("outputview").down("workstationlist").setStore(wsStore);
-                formCmp.up("home").down("attendanceview").down("attendancelist").setStore(wsStore);
             }
         });
         dynamicWsStore.load({
             params: {'operation_bulletin_id': obId},
             callback: function() {
                 formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
+                Ext.Viewport.setMasked(false);
             }
         });
         sectionStore.load({
@@ -145,6 +152,13 @@ Ext.define('Poise.view.ObForm', {
                 formCmp.up("home").down("#reworkChart").down("#reportSection").setStore(sectionStore);
             }
         });
+        // workingHoursStore.load({
+        //     callback: function() {
+        //         formCmp.up("home").down("downtimeview").down("#reportTime").setStore(workingHoursStore);
+        //         formCmp.up("home").down("reworkview").down("#reportTime").setStore(workingHoursStore);
+        //         formCmp.up("home").down("outputview").down("#reportTime").setStore(workingHoursStore);
+        //     }
+        // });
         this.loadReports();
     },
 
@@ -164,6 +178,6 @@ Ext.define('Poise.view.ObForm', {
         reportsController.onActiveItemChange(null, sectionOutputTriggerObj);
 
         var attendanceTriggerObj = { config: { xtype: 'attendance_chart_panel' } };
-        reportsController.onActiveItemChange(null, attendanceTriggerObj);
+        reportsController.onActiveItemChange(null, attendanceTriggerObj);        
     }
 });

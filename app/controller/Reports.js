@@ -122,11 +122,16 @@ Ext.define('Poise.controller.Reports', {
     },
     
     loadChartData: function(url, chart) {
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading data...'
+        });
         Ext.Ajax.request({
             url: url,
             success: function(response){
                 var chartData = Ext.JSON.decode(response.responseText);
                 chart.renderChartData(chartData);
+                Ext.Viewport.setMasked(false);
             }
         });
     }

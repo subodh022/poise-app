@@ -5,7 +5,7 @@ Ext.define('Poise.view.DowntimeView', {
 
     requires: [
         'Ext.Label',
-        'Poise.store.ReportTimeData'
+        'Poise.store.ReportTime'
     ],
 
     config: {
