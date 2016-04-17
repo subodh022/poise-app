@@ -11,8 +11,8 @@ Ext.define('Poise.view.OptionsView', {
                 '<table class="table table-bordered table-responsive">',
                     '<thead>',
                         '<th style="width: 10%"><i class="fa fa-sort"></i> Workstation</th>',
-                        '<th>Operation</th>',
-                        '<th style="width: 20%">Recent Output (Last 8 hours)</th>',
+                        '<th style="width: 15%">Operation</th>',
+                        '<th>Recent Output (Last 8 hours)</th>',
                         '<th>Operator(s)</th>',
                         '<th style="width: 15%">Action</th>',                        
                     '</thead>',
@@ -73,7 +73,7 @@ Ext.define('Poise.view.OptionsView', {
 
     initialize: function(data) {
         var me = this;
-        var dyanmicController = Poise.app.getController("Poise.controller.DynamicBalancing");
+        var dynamicController = Poise.app.getController("Poise.controller.DynamicBalancing");
         this.element.on({
             tap: function(e, node) { 
                 var el = e.getTarget('div.x-button');
@@ -89,7 +89,7 @@ Ext.define('Poise.view.OptionsView', {
                     }
                     if(state != "yellow") {
                         if(hours != "" && me.isInt(hours) && parseInt(hours) <= 8 && parseInt(hours) > 0) {
-                            dyanmicController.createDeviation(node, old_ws_id, new_ws_id, operator_id, hours);
+                            dynamicController.createDeviation(old_ws_id, new_ws_id, operator_id, hours);
                         } else {
                             Ext.Msg.alert("Deviation", "Enter valid no of hours to deviate.");
                             return false;

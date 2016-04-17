@@ -4,7 +4,8 @@ Ext.define('Poise.model.Workstation', {
     config: {
         idProperty: 'id',
         fields: [
-            { name: 'id', type: 'int' },
+            { name: 'id', type: 'int' },            
+            { name: 'ws_id', type: 'int' },
             { name: 'section_id', type: 'int' },
             { name: 'operation_bulletin_style', type: 'string' },
             { name: 'section_name', type: 'string' },

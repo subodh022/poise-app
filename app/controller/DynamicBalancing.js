@@ -70,7 +70,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
         }
     },
 
-    createDeviation: function(panel, old_ws_id, new_ws_id, operator_id, hours) {
+    createDeviation: function(old_ws_id, new_ws_id, operator_id, hours) {
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
             message: 'Loading data...'
@@ -83,6 +83,33 @@ Ext.define('Poise.controller.DynamicBalancing', {
                 Ext.Msg.alert("Deviation", "Operator Deviation created for " + hours + " hour(s)");
                 var data = Ext.JSON.decode(response.responseText);
                 var dynamicView = Ext.ComponentQuery.query("#dynamicOpView")[0].pop();
+                var dynamicDBView = Ext.ComponentQuery.query("#dynamicDashboard")[0].pop();
+                var dynamicWsStore = Ext.getStore('DynamicWorkstations');
+                var obId = localStorage.getItem('obId');
+                dynamicWsStore.load({
+                    params: {'operation_bulletin_id': obId},
+                    callback: function() {
+                        me.loadDynamicDashboard();
+                        Ext.Viewport.setMasked(false);
+                    }
+                });                
+            }
+        });
+    },
+
+    createMacDeviation: function(ws_id, mac_id, hours) {
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading data...'
+        });
+        var me = this;
+        Ext.Ajax.request({
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/create_mac_deviation.json?ws_id=' + ws_id + '&mac_id=' + mac_id + '&hours=' + hours,
+            method: 'POST',
+            success: function(response){
+                Ext.Msg.alert("Deviation", "New machine allocated for " + hours + " hour(s)");
+                var data = Ext.JSON.decode(response.responseText);
+                var dynamicMacView = Ext.ComponentQuery.query("#dynamicMacView")[0].pop();
                 var dynamicDBView = Ext.ComponentQuery.query("#dynamicDashboard")[0].pop();
                 var dynamicWsStore = Ext.getStore('DynamicWorkstations');
                 var obId = localStorage.getItem('obId');
@@ -134,7 +161,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
         var view = Ext.create('Poise.view.WSDetailsMacPanel');        
         target.up('#dynamicMacView').push(view);
         this.addWSDetailsToView(view, [record]);
-        this.loadMacData(record.id, view);
+        this.loadMacData(record.id, view, record.mac_state);
     },
 
     showWSDetailsForDB: function(record) {
@@ -148,7 +175,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
         var view = Ext.create('Poise.view.WSDetailsMacPanel');
         Ext.ComponentQuery.query("#dynamicDashboard")[0].push(view);
         this.addWSDetailsToView(view, [record]);
-        this.loadMacData(record.id, view);
+        this.loadMacData(record.id, view, record.mac_state);
     },
     
     loadData: function(ws_id, view, state) {
@@ -169,7 +196,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
         });
     },
 
-    loadMacData: function(ws_id, view) {
+    loadMacData: function(ws_id, view, state) {
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
             message: 'Loading data...'
@@ -179,7 +206,7 @@ Ext.define('Poise.controller.DynamicBalancing', {
             url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/ws_mac_details.json?work_station_id=' + ws_id,
             success: function(response){
                 var data = Ext.JSON.decode(response.responseText);
-                var table = Ext.create('Poise.view.MachineView', {data: [{title: 'Machine Availability', machines: data.machines}]});
+                var table = Ext.create('Poise.view.MachineView', {data: [{ws_id: ws_id, state: state, title: 'Machine Availability', machines: data.machines}]});
                 view.down('#machinesTable').add(table);
                 Ext.Viewport.setMasked(false);
             }

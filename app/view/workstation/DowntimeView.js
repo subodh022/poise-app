@@ -25,26 +25,26 @@ Ext.define('Poise.view.DowntimeView', {
                         cls: 'white_tabbar',
                         width: '100%',
                         items: [
-                            {
-                                xtype: 'label',
-                                styleHtmlContent: true,
-                                align: 'right',
-                                html: '<span>Entry Time : </span>'
-                            },
-                            {
-                                xtype: 'selectfield',
-                                itemId: 'reportTime',
-                                displayField: 'id',
-                                valueField: 'id',
-                                ui: 'normal',
-                                align: 'right',
-                                store: {
-                                    type: 'reporttimedata'
-                                },
-                                style: {
-                                    'padding-top': '0.75em'
-                                }
-                            },
+                            // {
+                            //     xtype: 'label',
+                            //     styleHtmlContent: true,
+                            //     align: 'right',
+                            //     html: '<span>Entry Time : </span>'
+                            // },
+                            // {
+                            //     xtype: 'selectfield',
+                            //     itemId: 'reportTime',
+                            //     displayField: 'id',
+                            //     valueField: 'id',
+                            //     ui: 'normal',
+                            //     align: 'right',
+                            //     store: {
+                            //         type: 'reporttimedata'
+                            //     },
+                            //     style: {
+                            //         'padding-top': '0.75em'
+                            //     }
+                            // },
                             {
                                 xtype: 'spacer'
                             },

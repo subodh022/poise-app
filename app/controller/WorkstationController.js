@@ -117,7 +117,7 @@ Ext.define('Poise.controller.WorkstationController', {
     showDowntimeForm: function (target, record) {
         var view = Ext.create('Poise.view.AddDowntime');        
         target.up('#downtimeView').push(view);
-        var loggedAt = view.up("#downtimeView").down("#reportDate").getValue() + " " + view.up("#downtimeView").down("#reportTime").getValue();
+        var loggedAt = Poise.util.Config.currentDateTime();
         view.down("hiddenfield[name=work_station_id]").setValue(record.id);
         view.down("textfield[name=logged_at]").setValue(loggedAt);
         this.loadData("downtime", record.id, loggedAt, view);

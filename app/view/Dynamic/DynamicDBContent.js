@@ -13,7 +13,7 @@ Ext.define('Poise.view.DynamicDBContent', {
                             '</div>',
                             '<div class="ws-body">',
                                 '<div data-ws="{ws_id}" data-sec="{section}" data-mac="{machine}" data-op="{operation}" data-state="{op_class}" class="op {op_class}"><span class="icon-custom">U</span></div>',
-                                '<div data-ws="{ws_id}" data-sec="{section}" data-mac="{machine}" data-op="{operation}" class="mac {mac_class}"><span class="icon-custom">/</span></div>',
+                                '<div data-ws="{ws_id}" data-sec="{section}" data-mac="{machine}" data-op="{operation}" data-state="{mac_class}" class="mac {mac_class}"><span class="icon-custom">/</span></div>',
                             '</div>',
                         '</div>',
                     '</tpl>',
@@ -41,7 +41,8 @@ Ext.define('Poise.view.DynamicDBContent', {
                     var section = el_mac.getAttribute('data-sec');
                     var operation = el_mac.getAttribute('data-op');
                     var machine = el_mac.getAttribute('data-mac');
-                    dyanmicController.showWSMacDetailsForDB({id: ws_id, section_name: section, operation_name: operation, machine_name: machine});
+                    var state = el_mac.getAttribute('data-state');
+                    dyanmicController.showWSMacDetailsForDB({id: ws_id, mac_state: state, section_name: section, operation_name: operation, machine_name: machine});
                 }
             }
         });

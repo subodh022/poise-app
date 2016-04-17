@@ -22,6 +22,10 @@ Ext.define('Poise.util.Config', {
         return Ext.Date.format(date_utc, "j M, Y h:i:s");
     },
 
+    currentDateTime: function(){
+        return Ext.Date.format(new Date(), "Y-m-d h:i:s");
+    },
+
     currentDate: function() {
         return  [
                     {

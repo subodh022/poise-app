@@ -9,6 +9,12 @@ Ext.define('Poise.store.DynamicWorkstations', {
     config: {
         model: 'Poise.model.Workstation',
         storeId: 'DynamicWorkstations',
+        sorters: [
+            {
+                property: 'ws_id',
+                direction: 'ASC'
+            }
+        ],
         grouper: {
             groupFn: function(record) {
                 return '<i class="fa fa-tag"></i> Section: ' + record.get('section_name');
