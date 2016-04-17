@@ -18,9 +18,6 @@ Ext.define('Poise.view.WorkstationView', {
                             '<td>{machine_name}</td>',
                         '</tr>',
                     '</tpl>',
-                    '<tpl if="operators.length == 0">',
-                        '<tr><td colspan="3"><i>No Operators Found</i></td></tr>',
-                    '</tpl>',
                 '</table>',
             '</tpl>'
         )

@@ -8,13 +8,19 @@ Ext.define('Poise.controller.DynamicBalancing', {
     config: {
 
         views: [
-            "DynamicView",
+            "DynamicOperatorsView",
+            'DynamicMachinesView',
+            "DynamicDashboard",
             "DynamicWorkstationList",
+            "DynamicWorkstationMacList",
             "WSDetailsPanel",
+            "WSDetailsMacPanel",
             "OperatorsView",
             "OutputsView",
             "OptionsView",
-            "WorkstationView"
+            "MachineView",
+            "WorkstationView",
+            "DynamicDBContent"
         ],
 
         models: [
@@ -26,21 +32,37 @@ Ext.define('Poise.controller.DynamicBalancing', {
         ],
 
         refs: {
-            listView: 'dynamic_workstation_list',
-            dynamicRefreshButton: 'dynamicview button[action=refresh-dynamic-list]',            
-            dynamicBackButton: 'button#dynamicBack',
+            opListView: 'dynamicopview dynamic_workstation_list',
+            macListView: 'dynamicmacview dynamic_workstation_mac_list',
+            dynamicOpRefreshButton: 'dynamicopview button[action=refresh-dynamic-op-list]',
+            dynamicMacRefreshButton: 'dynamicmacview button[action=refresh-dynamic-mac-list]',
+            dynamicDBRefreshButton: 'dynamicdashboard button[action=refresh-dynamic-dashboard]',
+            dynamicBackButton: 'button#dynamicBack',            
+            dynamicMacBackButton: 'button#dynamicMacBack',
             optionsTable: 'options_view'
         },
 
         control: {
-            "dynamicRefreshButton": {
-                tap: 'refreshWorkstationList'
+            "dynamicOpRefreshButton": {
+                tap: 'refreshOpWorkstationList'
             },
-            "listView": {
-                itemtap: 'onItemTapAction'
+            "dynamicMacRefreshButton": {
+                tap: 'refreshMacWorkstationList'
+            },
+            "dynamicDBRefreshButton": {
+                tap: 'loadDynamicDashboard'
+            },
+            "opListView": {
+                itemtap: 'onOpItemTapAction'
+            },
+            "macListView": {
+                itemtap: 'onMacItemTapAction'
             },
             "dynamicBackButton": {
                 tap: 'goBackToDynamicView'
+            },
+            "dynamicMacBackButton": {
+                tap: 'goBackToDynamicMacView'
             },
             "optionsTable": {
                 tap: 'handleOptionsTable'
@@ -58,15 +80,16 @@ Ext.define('Poise.controller.DynamicBalancing', {
             url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/create_deviation.json?old_ws_id=' + old_ws_id + '&new_ws_id=' + new_ws_id + '&operator_id=' + operator_id + '&hours=' + hours,
             method: 'POST',
             success: function(response){
-                Ext.Msg.alert("Deviation", "Deviation created for " + hours + " hours.");
+                Ext.Msg.alert("Deviation", "Operator Deviation created for " + hours + " hour(s)");
                 var data = Ext.JSON.decode(response.responseText);
-                var dynamicView = Ext.ComponentQuery.query("#dynamicView")[0].pop();
+                var dynamicView = Ext.ComponentQuery.query("#dynamicOpView")[0].pop();
+                var dynamicDBView = Ext.ComponentQuery.query("#dynamicDashboard")[0].pop();
                 var dynamicWsStore = Ext.getStore('DynamicWorkstations');
                 var obId = localStorage.getItem('obId');
                 dynamicWsStore.load({
                     params: {'operation_bulletin_id': obId},
                     callback: function() {
-                        dynamicView.down("dynamic_workstation_list").setStore(dynamicWsStore);
+                        me.loadDynamicDashboard();
                         Ext.Viewport.setMasked(false);
                     }
                 });                
@@ -74,24 +97,58 @@ Ext.define('Poise.controller.DynamicBalancing', {
         });
     },
 
-    refreshWorkstationList: function( button, e, eOpts) {
+    refreshOpWorkstationList: function( button, e, eOpts) {
         var dynamicWsStore = Ext.getStore('DynamicWorkstations');
         var obId = localStorage.getItem('obId');
         dynamicWsStore.load({
             params: {'operation_bulletin_id': obId}
         });
-        button.up("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
+        button.up("dynamicopview").down("dynamic_workstation_list").setStore(dynamicWsStore);
     },
 
-    onItemTapAction: function (dataview, index, target, record, e, eOpts) {
+    refreshMacWorkstationList: function( button, e, eOpts) {
+        var dynamicWsStore = Ext.getStore('DynamicWorkstations');
+        var obId = localStorage.getItem('obId');
+        dynamicWsStore.load({
+            params: {'operation_bulletin_id': obId}
+        });
+        button.up("dynamicmacview").down("dynamic_workstation_mac_list").setStore(dynamicWsStore);
+    },
+
+    onOpItemTapAction: function (dataview, index, target, record, e, eOpts) {
         this.showWSDetails(target, record.data);
+    },
+
+    onMacItemTapAction: function (dataview, index, target, record, e, eOpts) {
+        this.showWSMacDetails(target, record.data);
     },
 
     showWSDetails: function(target, record) {
         var view = Ext.create('Poise.view.WSDetailsPanel');        
-        target.up('#dynamicView').push(view);
+        target.up('#dynamicOpView').push(view);
         this.addWSDetailsToView(view, [record]);
         this.loadData(record.id, view, record.state);
+    },
+
+    showWSMacDetails: function(target, record) {
+        var view = Ext.create('Poise.view.WSDetailsMacPanel');        
+        target.up('#dynamicMacView').push(view);
+        this.addWSDetailsToView(view, [record]);
+        this.loadMacData(record.id, view);
+    },
+
+    showWSDetailsForDB: function(record) {
+        var view = Ext.create('Poise.view.WSDetailsPanel');        
+        Ext.ComponentQuery.query("#dynamicDashboard")[0].push(view);
+        this.addWSDetailsToView(view, [record]);
+        this.loadData(record.id, view, record.state);
+    },
+
+    showWSMacDetailsForDB: function(record) {
+        var view = Ext.create('Poise.view.WSDetailsMacPanel');
+        Ext.ComponentQuery.query("#dynamicDashboard")[0].push(view);
+        this.addWSDetailsToView(view, [record]);
+        this.loadMacData(record.id, view);
     },
     
     loadData: function(ws_id, view, state) {
@@ -112,8 +169,37 @@ Ext.define('Poise.controller.DynamicBalancing', {
         });
     },
 
+    loadMacData: function(ws_id, view) {
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading data...'
+        });
+        var me = this;
+        Ext.Ajax.request({
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/ws_mac_details.json?work_station_id=' + ws_id,
+            success: function(response){
+                var data = Ext.JSON.decode(response.responseText);
+                var table = Ext.create('Poise.view.MachineView', {data: [{title: 'Machine Availability', machines: data.machines}]});
+                view.down('#machinesTable').add(table);
+                Ext.Viewport.setMasked(false);
+            }
+        });
+    },
+
     goBackToDynamicView: function(button, e, eOpts){
-        button.up("#dynamicView").pop();
+        if(button.up("#dynamicOpView") != undefined) {
+            button.up("#dynamicOpView").pop();
+        } else if(button.up("#dynamicDashboard") != undefined) {
+            button.up("#dynamicDashboard").pop();
+        }
+    },
+
+    goBackToDynamicMacView: function(button, e, eOpts){
+        if(button.up("#dynamicMacView") != undefined) {
+            button.up("#dynamicMacView").pop();
+        } else if(button.up("#dynamicDashboard") != undefined) {
+            button.up("#dynamicDashboard").pop();
+        }
     },
 
     addWSDetailsToView: function(view, data) {
@@ -139,5 +225,25 @@ Ext.define('Poise.controller.DynamicBalancing', {
 
         var table = Ext.create('Poise.view.OptionsView', {data: [{old_ws_id: ws_id, state: state, title: 'Available Options for Deviation', options: data.options}]});
         view.down('#optionsTable').add(table);
+    },
+
+    loadDynamicDashboard: function(){
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading data...'
+        });
+        var me = this;
+        var obId = localStorage.getItem('obId');
+        var view = Ext.ComponentQuery.query('#dbPanel')[0];
+        Ext.Ajax.request({
+            url: Poise.util.Config.getApiBaseUrl() + 'api/v1/dynamic_balancing/ws_db_list.json?ob_id=' + obId,
+            success: function(response){
+                var data = Ext.JSON.decode(response.responseText);
+                var table = Ext.create('Poise.view.DynamicDBContent', {data: data});
+                view.removeAll();
+                view.add(table);
+                Ext.Viewport.setMasked(false);
+            }
+        });
     }
 });

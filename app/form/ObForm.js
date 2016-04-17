@@ -126,7 +126,6 @@ Ext.define('Poise.view.ObForm', {
         var wsStore = Ext.getStore('Workstations');
         var dynamicWsStore = Ext.getStore('DynamicWorkstations');
         var sectionStore = Ext.getStore('Sections');
-        // var workingHoursStore = Ext.getStore('ReportTime');
         var obId = localStorage.getItem('obId');
         var lineId = localStorage.getItem('lineId');
         wsStore.load({
@@ -140,7 +139,8 @@ Ext.define('Poise.view.ObForm', {
         dynamicWsStore.load({
             params: {'operation_bulletin_id': obId},
             callback: function() {
-                formCmp.up("home").down("dynamic_view").down("dynamic_workstation_list").setStore(dynamicWsStore);
+                formCmp.up("home").down("dynamicopview").down("dynamic_workstation_list").setStore(dynamicWsStore);
+                formCmp.up("home").down("dynamicmacview").down("dynamic_workstation_mac_list").setStore(dynamicWsStore);
                 Ext.Viewport.setMasked(false);
             }
         });
@@ -152,13 +152,7 @@ Ext.define('Poise.view.ObForm', {
                 formCmp.up("home").down("#reworkChart").down("#reportSection").setStore(sectionStore);
             }
         });
-        // workingHoursStore.load({
-        //     callback: function() {
-        //         formCmp.up("home").down("downtimeview").down("#reportTime").setStore(workingHoursStore);
-        //         formCmp.up("home").down("reworkview").down("#reportTime").setStore(workingHoursStore);
-        //         formCmp.up("home").down("outputview").down("#reportTime").setStore(workingHoursStore);
-        //     }
-        // });
+        this.loadDynamicDashboard();
         this.loadReports();
     },
 
@@ -179,5 +173,10 @@ Ext.define('Poise.view.ObForm', {
 
         var attendanceTriggerObj = { config: { xtype: 'attendance_chart_panel' } };
         reportsController.onActiveItemChange(null, attendanceTriggerObj);        
+    },
+
+    loadDynamicDashboard: function() {
+        var dynamicController = Poise.app.getController("Poise.controller.DynamicBalancing");
+        dynamicController.loadDynamicDashboard();
     }
 });

@@ -1,7 +1,7 @@
-Ext.define('Poise.view.DynamicView', {
+Ext.define('Poise.view.DynamicDashboard', {
     extend: 'Ext.navigation.View',
-    alias: 'widget.dynamicview',
-    xtype: 'dynamic_view',
+    alias: 'widget.dynamicdashboard',
+    xtype: 'dynamicdashboard',
 
     requires: [
         'Ext.Label'
@@ -10,23 +10,18 @@ Ext.define('Poise.view.DynamicView', {
     config: {
         layout: 'card',
         navigationBar: false,
-        itemId: 'dynamicView',
-        title: 'Balance Line',
-        iconCls: 'organize',
+        scrollable: true,
+        itemId: 'dynamicDashboard',
         defaults: {
             styleHtmlContent: true
         },
 
-        items: [
-            {
-                xtype: 'titlebar',
-                title: 'Dynamic Line Balancing',
-                docked: 'top'
-            },           
+        items: [                       
             {
                 xtype: 'panel',
-                layout: 'fit',
+                scrollable: true,
                 width: '100%',
+                height: '100%',
                 items: [
                     {
                         xtype: 'titlebar',
@@ -62,12 +57,15 @@ Ext.define('Poise.view.DynamicView', {
                                 width: 'auto',
                                 height: '2em',
                                 align: 'right',
-                                action: 'refresh-dynamic-list'
+                                action: 'refresh-dynamic-dashboard'
                             }
                         ]
                     },
                     {
-                        xtype: 'dynamic_workstation_list'
+                        xtype: 'panel',
+                        layout: 'fit',
+                        itemId: 'dbPanel',
+                        margin: 10
                     }
                 ]
             }

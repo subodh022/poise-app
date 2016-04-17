@@ -27,7 +27,8 @@ Ext.application({
         'AttendanceList',
         'DowntimeView',
         'ReportView',
-        'AttendanceListItem'
+        'AttendanceListItem',
+        'DynamicHome'
     ],
 
     models: [

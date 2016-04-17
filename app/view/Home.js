@@ -6,7 +6,8 @@ Ext.define('Poise.view.Home', {
         'Poise.view.ReportEntryCard',
         'Poise.view.ObForm',
         'Poise.view.ReportView',
-        'Poise.view.DynamicView',
+        'Poise.view.DynamicHome',
+        'Poise.view.DynamicOperatorsView',
         'Poise.view.WorkstationList',
         'Poise.view.DynamicWorkstationList'
     ],
@@ -33,7 +34,7 @@ Ext.define('Poise.view.Home', {
                 xtype: 'reportview'
             },
             {
-                xtype: 'dynamic_view'
+                xtype: 'dynamichome'
             }
         ]
     }

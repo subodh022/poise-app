@@ -55,10 +55,16 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.BarChartPanel": "app/view/charts/BarChartPanel.js",
   "Poise.view.DowntimeChartPanel": "app/view/charts/DowntimeChartPanel.js",
   "Poise.view.DowntimeView": "app/view/workstation/DowntimeView.js",
-  "Poise.view.DynamicView": "app/view/Dynamic/DynamicView.js",
+  "Poise.view.DynamicDBContent": "app/view/Dynamic/DynamicDBContent.js",
+  "Poise.view.DynamicDashboard": "app/view/Dynamic/DynamicDashboard.js",
+  "Poise.view.DynamicHome": "app/view/Dynamic/DynamicHome.js",
+  "Poise.view.DynamicMachinesView": "app/view/Dynamic/DynamicMachinesView.js",
+  "Poise.view.DynamicOperatorsView": "app/view/Dynamic/DynamicOperatorsView.js",
   "Poise.view.DynamicWorkstationList": "app/view/Dynamic/DynamicWorkstationList.js",
+  "Poise.view.DynamicWorkstationMacList": "app/view/Dynamic/DynamicWorkstationMacList.js",
   "Poise.view.LineChartPanel": "app/view/charts/LineChartPanel.js",
   "Poise.view.LoginForm": "app/form/LoginForm.js",
+  "Poise.view.MachineView": "app/view/Dynamic/MachineView.js",
   "Poise.view.ObForm": "app/form/ObForm.js",
   "Poise.view.OperatorsView": "app/view/Dynamic/OperatorsView.js",
   "Poise.view.OptionsView": "app/view/Dynamic/OptionsView.js",
@@ -70,6 +76,7 @@ Ext.Loader.addClassPathMappings({
   "Poise.view.ReworkChartPanel": "app/view/charts/ReworkChartPanel.js",
   "Poise.view.ReworkView": "app/view/workstation/ReworkView.js",
   "Poise.view.SectionOutputChartPanel": "app/view/charts/SectionOutputChartPanel.js",
+  "Poise.view.WSDetailsMacPanel": "app/view/Dynamic/WSDetailsMacView.js",
   "Poise.view.WSDetailsPanel": "app/view/Dynamic/WSDetailsView.js",
   "Poise.view.WorkstationList": "app/view/workstation/WorkstationList.js",
   "Poise.view.WorkstationView": "app/view/Dynamic/WorkstationView.js"
@@ -757,11 +764,17 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.BarChartPanel": [],
   "Poise.view.DowntimeChartPanel": [],
   "Poise.view.DowntimeView": [],
-  "Poise.view.DynamicView": [],
+  "Poise.view.DynamicDBContent": [],
+  "Poise.view.DynamicDashboard": [],
+  "Poise.view.DynamicHome": [],
+  "Poise.view.DynamicMachinesView": [],
+  "Poise.view.DynamicOperatorsView": [],
   "Poise.view.DynamicWorkstationList": [],
+  "Poise.view.DynamicWorkstationMacList": [],
   "Poise.view.Home": [],
   "Poise.view.LineChartPanel": [],
   "Poise.view.LoginForm": [],
+  "Poise.view.MachineView": [],
   "Poise.view.Main": [],
   "Poise.view.ObForm": [],
   "Poise.view.OperatorsView": [],
@@ -775,6 +788,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Poise.view.ReworkChartPanel": [],
   "Poise.view.ReworkView": [],
   "Poise.view.SectionOutputChartPanel": [],
+  "Poise.view.WSDetailsMacPanel": [],
   "Poise.view.WSDetailsPanel": [],
   "Poise.view.WorkstationList": [],
   "Poise.view.WorkstationView": []
@@ -1641,12 +1655,24 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.DowntimeView": [
     "widget.downtimeview"
   ],
-  "Poise.view.DynamicView": [
-    "widget.dynamic_view",
-    "widget.dynamicview"
+  "Poise.view.DynamicDBContent": [],
+  "Poise.view.DynamicDashboard": [
+    "widget.dynamicdashboard"
+  ],
+  "Poise.view.DynamicHome": [
+    "widget.dynamichome"
+  ],
+  "Poise.view.DynamicMachinesView": [
+    "widget.dynamicmacview"
+  ],
+  "Poise.view.DynamicOperatorsView": [
+    "widget.dynamicopview"
   ],
   "Poise.view.DynamicWorkstationList": [
     "widget.dynamic_workstation_list"
+  ],
+  "Poise.view.DynamicWorkstationMacList": [
+    "widget.dynamic_workstation_mac_list"
   ],
   "Poise.view.Home": [
     "widget.home"
@@ -1657,6 +1683,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Poise.view.LoginForm": [
     "widget.loginform"
   ],
+  "Poise.view.MachineView": [],
   "Poise.view.Main": [
     "widget.main"
   ],
@@ -1691,6 +1718,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Poise.view.SectionOutputChartPanel": [
     "widget.section_output_chart_panel"
+  ],
+  "Poise.view.WSDetailsMacPanel": [
+    "widget.ws_details_mac_panel"
   ],
   "Poise.view.WSDetailsPanel": [
     "widget.ws_details_panel"

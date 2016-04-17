@@ -130,6 +130,12 @@ Ext.define('Poise.controller.Reports', {
             url: url,
             success: function(response){
                 var chartData = Ext.JSON.decode(response.responseText);
+                Ext.each(chartData, function(data, i){
+                    if(data.values.length == 0) {
+                        // chart.setHtml('<text class="nvd3 nv-noData" dy="-.7em" style="text-anchor: middle;" x="980" y="208.5">No Output Data Found</text>');
+                        // return;
+                    }
+                });
                 chart.renderChartData(chartData);
                 Ext.Viewport.setMasked(false);
             }
