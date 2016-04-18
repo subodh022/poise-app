@@ -135,8 +135,6 @@ Ext.define('Poise.view.AttendanceListItem', {
         var me = this;
         if(operators.length > 0){
             Ext.each(operators, function(op){
-                console.log(op);
-                console.log(JSON.parse(op[1]));
                 var value = (JSON.parse(op[1]) ? 1 : 0);
                 var op_id = op[0];
                 var toggle_class = (JSON.parse(op[1]) ? "toggle-button-selected" : "");
@@ -148,7 +146,6 @@ Ext.define('Poise.view.AttendanceListItem', {
                 togglePanel.add(newPanel);
             });
         } else {
-            console.log(attendance_today);
             var value = (attendance_today ? 1 : 0);
             var op_id = 0;
             var toggle_class = (attendance_today ? "toggle-button-selected" : "");
