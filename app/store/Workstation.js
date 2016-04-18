@@ -8,12 +8,13 @@ Ext.define('Poise.store.Workstations', {
 
     config: {
         model: 'Poise.model.Workstation',
-        storeId: 'Workstations',
+        storeId: 'Workstations',        
+        remoteSort: true,
         grouper: {
             groupFn: function(record) {
                 return '<i class="fa fa-tag"></i> Section: ' + record.get('section_name');
-            },
-            sortProperty: 'section_id'
+            }
+            // sortProperty: 'section_id'
         },
         proxy: {
             type: 'rest',
